@@ -51,7 +51,7 @@
 }
 
 .hero-heading__highlight {
-  color: var(--color-success);
+  color: var(--color-error);
 }
 
 .hero__subheadline {
