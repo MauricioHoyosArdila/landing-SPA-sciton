@@ -87,11 +87,6 @@
   color: var(--color-brand-primary);
 }
 
-.eyebrow--tech {
-  font-family: var(--font-mono-tech);
-  color: var(--color-tech-accent-bright);
-}
-
 .microcopy {
   font-size: var(--text-xs);
   color: var(--color-text-muted);
@@ -104,16 +99,16 @@
 }
 
 /* ---------------------------------------------------------------------
-   Cards — symptom / wavelength / area
+   Cards — area
    --------------------------------------------------------------------- */
 
-.symptom-card,
 .area-card {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--space-3);
-  padding: var(--space-5) var(--space-3);
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-3);
   background: var(--color-bg-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-card);
@@ -123,73 +118,11 @@
   box-shadow: var(--shadow-sm);
 }
 
-.symptom-card__icon,
 .area-card__icon {
-  width: 40px;
-  height: 40px;
-  color: var(--color-brand-primary);
-}
-
-.area-card {
-  flex-direction: row;
-  justify-content: flex-start;
-  text-align: left;
-  gap: var(--space-3);
-  padding: var(--space-4) var(--space-5);
-}
-
-.area-card__icon {
-  width: 28px;
-  height: 28px;
+  width: 24px;
+  height: 24px;
   flex-shrink: 0;
-}
-
-.wavelength-card {
-  position: relative;
-  padding: var(--space-6) var(--space-5);
-  background: var(--color-bg-inverse-elevated);
-  border: 1px solid var(--color-border-inverse);
-  border-radius: var(--radius-card-tech);
-  color: var(--color-text-inverse);
-}
-
-.wavelength-card__index {
-  display: block;
-  font-family: var(--font-mono-tech);
-  font-size: var(--text-sm);
-  letter-spacing: var(--tracking-widest);
-  color: var(--color-tech-accent);
-  margin-bottom: var(--space-4);
-}
-
-.wavelength-card__nm {
-  display: block;
-  font-family: var(--font-mono-tech);
-  font-weight: 600;
-  font-size: var(--text-2xl);
-  color: var(--color-tech-accent-bright);
-  font-variant-numeric: tabular-nums;
-  line-height: 1;
-  margin-bottom: var(--space-4);
-}
-
-.wavelength-card__nm small {
-  font-size: var(--text-md);
-  font-weight: 500;
-  margin-left: var(--space-1);
-  color: var(--color-tech-accent);
-}
-
-.wavelength-card h3 {
-  font-family: var(--font-body);
-  color: var(--color-text-inverse);
-  margin-bottom: var(--space-2);
-}
-
-.wavelength-card p {
-  color: var(--color-text-inverse-muted);
-  font-size: var(--text-sm);
-  margin: 0;
+  color: var(--color-brand-primary);
 }
 
 /* ---------------------------------------------------------------------
@@ -226,7 +159,7 @@
 }
 
 /* ---------------------------------------------------------------------
-   Value points (module 3)
+   Value points (module 4)
    --------------------------------------------------------------------- */
 
 .value-points {
@@ -420,13 +353,23 @@
    Before / after carousel
    --------------------------------------------------------------------- */
 
+.ba-carousel {
+  position: relative;
+}
+
 .ba-carousel__track {
   display: flex;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   gap: var(--space-5);
-  padding-bottom: var(--space-3);
+  padding: 0 4px var(--space-3);
   scrollbar-width: none;
+}
+
+@media (min-width: 768px) {
+  .ba-carousel__track {
+    padding-inline: 56px;
+  }
 }
 
 .ba-carousel__track::-webkit-scrollbar {
@@ -477,38 +420,52 @@
   border-radius: var(--radius-sm);
 }
 
-.ba-slide figcaption {
-  margin-top: var(--space-3);
-  font-size: var(--text-sm);
-  color: var(--color-text-muted);
-  text-align: center;
-}
-
-.ba-slide__courtesy {
-  font-style: italic;
-}
-
-.ba-carousel__controls {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-5);
-  margin-top: var(--space-5);
-}
-
 .ba-carousel__arrow {
   display: grid;
   place-items: center;
-  width: 44px;
-  height: 44px;
+  width: 40px;
+  height: 40px;
   border-radius: var(--radius-pill);
-  background: var(--color-bg-surface);
+  background: rgb(255 255 255 / 0.7);
   border: 1.5px solid var(--color-border);
   font-size: var(--text-md);
 }
 
 .ba-carousel__arrow:hover {
   background: var(--color-bg-surface-alt);
+}
+
+.ba-carousel__arrow--prev,
+.ba-carousel__arrow--next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+.ba-carousel__arrow--prev {
+  left: 4px;
+}
+
+.ba-carousel__arrow--next {
+  right: 4px;
+}
+
+@media (min-width: 768px) {
+  .ba-carousel__arrow--prev,
+  .ba-carousel__arrow--next {
+    width: 44px;
+    height: 44px;
+    background: var(--color-bg-surface);
+  }
+
+  .ba-carousel__arrow--prev {
+    left: 0;
+  }
+
+  .ba-carousel__arrow--next {
+    right: 0;
+  }
 }
 
 .ba-carousel__dots {
@@ -528,71 +485,13 @@
 }
 
 /* ---------------------------------------------------------------------
-   Symptoms carousel (mobile) — native scroll-snap, no JS required
-   --------------------------------------------------------------------- */
-
-.symptoms-grid {
-  display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: minmax(132px, 1fr);
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  gap: var(--space-3);
-  padding-bottom: var(--space-3);
-  scrollbar-width: none;
-}
-
-.symptoms-grid::-webkit-scrollbar {
-  display: none;
-}
-
-.symptoms-grid > * {
-  scroll-snap-align: start;
-}
-
-@media (min-width: 768px) {
-  .symptoms-grid {
-    grid-auto-flow: row;
-    grid-template-columns: repeat(4, 1fr);
-    overflow-x: visible;
-  }
-}
-
-/* ---------------------------------------------------------------------
    Areas grid
    --------------------------------------------------------------------- */
 
 .areas-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: var(--space-3);
-}
-
-@media (min-width: 768px) {
-  .areas-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (min-width: 1024px) {
-  .areas-grid {
-    grid-template-columns: repeat(6, 1fr);
-  }
-}
-
-/* ---------------------------------------------------------------------
-   Wavelength cards layout
-   --------------------------------------------------------------------- */
-
-.wavelength-cards {
-  display: grid;
-  gap: var(--space-5);
-}
-
-@media (min-width: 768px) {
-  .wavelength-cards {
-    grid-template-columns: repeat(3, 1fr);
-  }
 }
 
 /* ---------------------------------------------------------------------

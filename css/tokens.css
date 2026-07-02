@@ -14,10 +14,10 @@
   --raw-white: #ffffff;
   --raw-blush-rose: #e6b9b4;
   --raw-deep-rose: #d28e8e;
-  --raw-terracotta: #92644f;
-  --raw-terracotta-dark: #7a5140;
-  --raw-charcoal-warm: #2e2620;
-  --raw-charcoal-muted: #6b5d54;
+  --raw-terracotta: #bc5b82;
+  --raw-terracotta-dark: #db5296;
+  --raw-charcoal-warm: #303030;
+  --raw-charcoal-muted: #606060;
   --raw-border-warm: #e7d9d0;
 
   /* tech insert — strictly scoped to the wavelength module + credibility badges */
@@ -42,7 +42,7 @@
   --color-text-primary: var(--raw-charcoal-warm);
   --color-text-muted: var(--raw-charcoal-muted);
   --color-text-inverse: var(--raw-white);
-  --color-text-inverse-muted: var(--raw-steel-bright);
+  --color-text-inverse-muted: var(--raw-white);
 
   --color-brand-primary: var(--raw-terracotta);
   --color-brand-primary-hover: var(--raw-terracotta-dark);

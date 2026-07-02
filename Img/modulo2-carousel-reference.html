@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Module 2 - What it can improve (reference prototype)</title>
+<style>
+  body {
+    font-family: -apple-system, sans-serif;
+    max-width: 720px;
+    margin: 40px auto;
+    padding: 0 20px;
+    color: #2c2c2a;
+  }
+  .card {
+    flex: 0 0 200px;
+    scroll-snap-align: start;
+    background: #ffffff;
+    border: 0.5px solid #e0ddd6;
+    border-radius: 12px;
+    padding: 1.25rem 1rem;
+    text-align: center;
+    cursor: pointer;
+  }
+  .img-wrap {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 12px;
+    border-radius: 50%;
+    background: #f1efe8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .overlay {
+    position: absolute;
+    inset: 0;
+    background: #fbf7f2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+  }
+  .overlay p {
+    font-size: 11px;
+    line-height: 1.4;
+    margin: 0;
+    color: #5f5e5a;
+  }
+  .card:hover .overlay,
+  .card.active .overlay {
+    opacity: 1;
+  }
+  .title {
+    font-size: 14px;
+    font-weight: 500;
+    margin: 0;
+  }
+  #track {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 4px 40px 12px;
+  }
+  .nav-btn {
+    position: absolute;
+    top: 80px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 0.5px solid #b4b2a9;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 2;
+  }
+  #dots {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    margin: 4px 0 1.25rem;
+  }
+  .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #b4b2a9;
+  }
+</style>
+</head>
+<body>
+
+<!--
+  REFERENCE PROTOTYPE ONLY.
+  Structure and interaction behavior to replicate:
+  - Centered title + intro
+  - Horizontal scroll-snap carousel (NOT a hidden-slide carousel), 6 cards
+  - Each card: circular image placeholder (leave empty for now, real skin
+    photos will be added later) that reveals a short description on
+    hover (desktop) or tap (mobile)
+  - Title always visible below the image
+  - No individual button inside each card
+  - Prev/next arrow buttons + dot indicators
+  - Single CTA button below the whole carousel (not per card)
+  - Small muted legal note above the CTA
+
+  COLORS/FONTS IN THIS FILE ARE PLACEHOLDER ONLY.
+  Replace with the project's existing design system tokens.
+-->
+
+<div style="text-align:center; margin-bottom:1.5rem;">
+  <h3 style="font-size:22px; font-weight:500; margin:0 0 8px;">What it can improve</h3>
+  <p style="font-size:15px; color:#5f5e5a; margin:0;">Designed to treat multiple skin concerns in a single, customized session.</p>
+</div>
+
+<div style="position:relative;">
+  <button id="prevBtn" class="nav-btn" style="left:-4px;" aria-label="Previous">&#8592;</button>
+  <button id="nextBtn" class="nav-btn" style="right:-4px;" aria-label="Next">&#8594;</button>
+  <div id="track"></div>
+</div>
+
+<div id="dots"></div>
+
+<p style="font-size:12px; color:#888780; text-align:center; margin:0 0 1.25rem;">*Results and candidacy vary. Confirmed during your consultation.</p>
+
+<div style="text-align:center;">
+  <button style="border-radius:8px; border:0.5px solid #b4b2a9; background:#fff; padding:10px 20px; font-size:14px; cursor:pointer;">See what's possible for your skin</button>
+</div>
+
+<script>
+var cards = [
+  {title:"Sun damage and dyschromia", text:"Fades the look of sun spots, discoloration and uneven tone."},
+  {title:"Fine lines and wrinkles", text:"Softens the look of early signs of aging."},
+  {title:"Rough texture", text:"Smooths the skin's surface for a softer feel."},
+  {title:"Enlarged pores", text:"Helps refine the appearance of pore size."},
+  {title:"Acne scars and scar revision", text:"Helps minimize the look of scars for a more even complexion."},
+  {title:"Dull or tired looking skin", text:"Supports renewal for a fresher, more radiant look."}
+];
+
+var track = document.getElementById('track');
+var dotsWrap = document.getElementById('dots');
+
+cards.forEach(function(c, i){
+  var card = document.createElement('div');
+  card.className = 'card';
+
+  var imgWrap = document.createElement('div');
+  imgWrap.className = 'img-wrap';
+
+  var overlay = document.createElement('div');
+  overlay.className = 'overlay';
+  var overlayText = document.createElement('p');
+  overlayText.textContent = c.text;
+  overlay.appendChild(overlayText);
+  imgWrap.appendChild(overlay);
+
+  var title = document.createElement('p');
+  title.className = 'title';
+  title.textContent = c.title;
+
+  card.appendChild(imgWrap);
+  card.appendChild(title);
+  track.appendChild(card);
+
+  card.addEventListener('click', function(){
+    card.classList.toggle('active');
+  });
+
+  var dot = document.createElement('div');
+  dot.className = 'dot';
+  dotsWrap.appendChild(dot);
+});
+
+function scrollByCard(dir){
+  track.scrollBy({left: dir * 216, behavior: 'smooth'});
+}
+document.getElementById('prevBtn').addEventListener('click', function(){ scrollByCard(-1); });
+document.getElementById('nextBtn').addEventListener('click', function(){ scrollByCard(1); });
+
+track.addEventListener('scroll', function(){
+  var index = Math.round(track.scrollLeft / 216);
+  Array.from(dotsWrap.children).forEach(function(d, i){
+    d.style.background = i === index ? '#2c2c2a' : '#b4b2a9';
+  });
+});
+</script>
+
+</body>
+</html>

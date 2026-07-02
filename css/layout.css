@@ -150,10 +150,6 @@ section[id] {
   margin-bottom: var(--space-7);
 }
 
-.section-heading--inverse {
-  max-width: 64ch;
-}
-
 .section-cta {
   margin-top: var(--space-6);
 }
@@ -162,8 +158,4 @@ section[id] {
   max-width: 60ch;
   font-style: italic;
   color: var(--color-text-muted);
-}
-
-.closing-copy--inverse {
-  color: var(--color-text-inverse-muted);
 }

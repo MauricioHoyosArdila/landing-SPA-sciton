@@ -4,30 +4,33 @@
    ========================================================================== */
 
 /* ---------------------------------------------------------------------
-   Inverse (tech-insert) section shell — module 4 only
-   --------------------------------------------------------------------- */
-
-.section--inverse {
-  background: var(--color-bg-inverse);
-  color: var(--color-text-inverse);
-}
-
-.section--inverse h2,
-.section--inverse h3 {
-  color: var(--color-text-inverse);
-}
-
-.section--inverse p {
-  color: var(--color-text-inverse-muted);
-}
-
-/* ---------------------------------------------------------------------
    Module 1 — Hero
    --------------------------------------------------------------------- */
 
 .hero {
   padding-top: clamp(var(--space-7), 6vw, var(--space-9));
-  background: linear-gradient(180deg, var(--color-bg-surface-alt) 0%, var(--color-bg-page) 60%);
+  background-color: var(--color-bg-surface-alt);
+  background-image: url("../Img/1_BG-03.jpg");
+  background-repeat: no-repeat;
+  background-size: 200% 200%;
+  background-position: 0% 50%;
+  animation: hero-bg-drift 16s ease-in-out infinite alternate;
+}
+
+@keyframes hero-bg-drift {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero {
+    animation: none;
+    background-position: 50% 50%;
+  }
 }
 
 .hero__grid {
@@ -48,13 +51,33 @@
 
 .hero h1 {
   margin-bottom: var(--space-3);
+  color: #303030;
+}
+
+.hero__body {
+  color: #606060;
+}
+
+.hero__ctas .btn--primary {
+  background: #db5296;
+}
+
+.hero__ctas .btn--primary:hover {
+  background: #ba4680;
 }
 
 .hero__subheadline {
   font-size: var(--text-md);
   font-weight: 600;
-  color: var(--color-text-muted);
+  /* Hardcoded (not var(--color-text-muted)) — this module keeps its exact
+     original color even as the site-wide muted-text token is retuned. */
+  color: #6b5d54;
   margin-bottom: var(--space-5);
+}
+
+.hero .microcopy {
+  /* Same freeze as .hero__subheadline above — see comment there. */
+  color: #6b5d54;
 }
 
 .bonus-callout-inline {
@@ -85,15 +108,363 @@
 }
 
 /* ---------------------------------------------------------------------
-   Module 2 — Symptoms
+   Module 2 — What it can improve (concerns carousel)
    --------------------------------------------------------------------- */
 
-.symptoms {
-  background: var(--color-bg-page);
+.concerns {
+  background-color: var(--color-bg-page);
+  background-image: url("../Img/1_BG-18.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.concerns .section-heading {
+  text-align: center;
+  margin-inline: auto;
+}
+
+.concerns .section-heading h2 {
+  color: #303030;
+}
+
+.concerns .section-cta .btn {
+  background: #bc5b82;
+  color: #ffffff;
+}
+
+.concerns .section-cta .btn:hover {
+  background: #db5296;
+}
+
+.concerns .disclaimer,
+.concerns .section-cta {
+  text-align: center;
+  margin-inline: auto;
+}
+
+.concerns-carousel {
+  position: relative;
+}
+
+.concerns-carousel__track {
+  display: flex;
+  gap: var(--space-5);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: var(--space-2) 40px var(--space-3);
+  scrollbar-width: none;
+}
+
+@media (min-width: 1024px) {
+  .concerns-carousel__track {
+    padding-inline: 64px;
+  }
+}
+
+.concerns-carousel__track::-webkit-scrollbar {
+  display: none;
+}
+
+.concerns-carousel__arrow {
+  position: absolute;
+  top: 45%;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+.concerns-carousel__arrow--prev {
+  left: 0;
+}
+
+.concerns-carousel__arrow--next {
+  right: 0;
+}
+
+.concerns-carousel__dots {
+  justify-content: center;
+  margin-top: var(--space-5);
+}
+
+.concern-card {
+  position: relative;
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+  padding: var(--space-7) var(--space-5) var(--space-8);
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-sm);
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Same source photo on every card, mirrored/repositioned per card via nth-child
+   so the gradient doesn't land identically twice in a row. */
+.concern-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image: url("../Img/1_BG-01.jpg");
+  background-size: cover;
+}
+
+.concern-card__media-wrap,
+.concern-card__title {
+  position: relative;
+  z-index: 1;
+}
+
+.concern-card:nth-child(6n + 1)::before {
+  background-position: top left;
+}
+
+.concern-card:nth-child(6n + 2)::before {
+  background-position: top right;
+  transform: scaleX(-1);
+}
+
+.concern-card:nth-child(6n + 3)::before {
+  background-position: bottom left;
+  transform: scaleY(-1);
+}
+
+.concern-card:nth-child(6n + 4)::before {
+  background-position: bottom right;
+  transform: scale(-1);
+}
+
+.concern-card:nth-child(6n + 5)::before {
+  background-position: center;
+  transform: scale(1.35);
+}
+
+.concern-card:nth-child(6n + 6)::before {
+  background-position: center;
+  transform: scaleX(-1) scale(1.15);
+}
+
+@media (min-width: 768px) {
+  .concern-card {
+    flex-basis: calc(50% - var(--space-3));
+  }
+}
+
+@media (min-width: 1024px) {
+  .concern-card {
+    flex-basis: calc(33.333% - var(--space-4));
+  }
+}
+
+.concern-card__media-wrap {
+  position: relative;
+  width: 78%;
+  aspect-ratio: 1;
+  margin: 0 auto var(--space-5);
+  border: 2px solid #db5296;
+  border-radius: var(--radius-pill);
+  background: var(--color-bg-surface-alt);
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.concern-card__media {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.concern-card__overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: 15%;
+  background: var(--color-bg-surface-alt);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--duration-base) var(--ease-standard);
+}
+
+.concern-card__overlay-text {
+  font-size: var(--text-xs);
+  line-height: var(--leading-snug);
+  color: var(--color-text-muted);
+}
+
+.concern-card__overlay-cta {
+  min-height: auto;
+  padding: 0;
+  font-size: var(--text-xs);
+}
+
+.concern-card__media-wrap:hover .concern-card__overlay,
+.concern-card__media-wrap:focus-within .concern-card__overlay,
+.concern-card__media-wrap[aria-expanded="true"] .concern-card__overlay {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.concern-card__title {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-text-primary);
 }
 
 /* ---------------------------------------------------------------------
-   Module 3 / 9 — Editorial block (spa positioning, consultation matters)
+   Module 4 — Smooth, brighten, renew (skin layers)
+   --------------------------------------------------------------------- */
+
+.skin-layers {
+  padding-block: clamp(var(--space-6), 5vw, var(--space-8));
+  background-color: var(--color-bg-page);
+  background-image: url("../Img/1_BG-01.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.skin-layers .section-heading {
+  text-align: center;
+  margin-inline: auto;
+  margin-bottom: var(--space-5);
+}
+
+.skin-layers__grid {
+  display: grid;
+  gap: var(--space-7);
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .skin-layers__grid {
+    grid-template-columns: 0.85fr 1.15fr;
+  }
+}
+
+.skin-layers__media {
+  position: relative;
+  max-width: 360px;
+  margin-inline: auto;
+}
+
+@media (min-width: 1024px) {
+  .skin-layers__media {
+    max-width: none;
+  }
+}
+
+.skin-layers__img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.skin-layers__marker {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border: 2px solid var(--color-brand-primary);
+  border-radius: var(--radius-pill);
+  background: rgb(255 255 255 / 0.85);
+  cursor: pointer;
+  transition: transform var(--duration-fast) var(--ease-standard),
+    background-color var(--duration-fast) var(--ease-standard);
+}
+
+.skin-layers__marker-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: var(--radius-pill);
+  background: var(--color-brand-primary);
+  transition: transform var(--duration-fast) var(--ease-standard),
+    background-color var(--duration-fast) var(--ease-standard);
+}
+
+.skin-layers__marker:hover {
+  background: var(--color-bg-surface);
+}
+
+.skin-layers__marker[aria-pressed="true"] {
+  background: var(--color-brand-primary);
+  transform: translate(-50%, -50%) scale(1.2);
+}
+
+.skin-layers__marker[aria-pressed="true"] .skin-layers__marker-dot {
+  background: var(--color-text-inverse);
+  transform: scale(1.3);
+}
+
+.skin-layers__tabs {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-bottom: var(--space-5);
+}
+
+.skin-layers__tab {
+  padding: var(--space-4) var(--space-5);
+  background: var(--color-bg-surface);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--text-md);
+  color: var(--color-text-muted);
+  text-align: left;
+  transition: background-color var(--duration-fast) var(--ease-standard),
+    color var(--duration-fast) var(--ease-standard),
+    border-color var(--duration-fast) var(--ease-standard);
+}
+
+.skin-layers__tab.is-active {
+  background: var(--color-brand-primary);
+  border-color: var(--color-brand-primary);
+  color: var(--color-text-inverse);
+}
+
+.skin-layers__tab-nm {
+  margin-left: var(--space-2);
+  font-family: var(--font-mono-tech);
+  font-weight: 500;
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+}
+
+.skin-layers__tab.is-active .skin-layers__tab-nm {
+  color: rgb(255 255 255 / 0.75);
+}
+
+.skin-layers__panel {
+  padding: var(--space-5);
+  margin-bottom: var(--space-6);
+  min-height: 6.5em;
+  background: var(--color-bg-surface-alt);
+  border-radius: var(--radius-md);
+}
+
+.skin-layers__panel p {
+  margin: 0;
+  color: var(--color-text-muted);
+  transition: opacity var(--duration-base) var(--ease-standard);
+}
+
+.skin-layers__panel.is-fading p {
+  opacity: 0;
+}
+
+/* ---------------------------------------------------------------------
+   Module 6 / 8 — Editorial block (spa positioning, consultation matters)
    --------------------------------------------------------------------- */
 
 .editorial-block {
@@ -130,59 +501,34 @@
 }
 
 /* ---------------------------------------------------------------------
-   Module 4 — Wavelengths (tech insert)
-   --------------------------------------------------------------------- */
-
-.wavelengths {
-  position: relative;
-  overflow: hidden;
-}
-
-.wavelengths::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(60% 80% at 80% 0%, rgb(159 184 196 / 0.12), transparent 70%);
-  pointer-events: none;
-}
-
-/* signature "wavelength sweep" reveal — module 4 only */
-.wavelength-card {
-  overflow: hidden;
-}
-
-.wavelength-card::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(100deg, transparent 0%, rgb(199 220 227 / 0.18) 45%, transparent 60%);
-  transform: translateX(-120%);
-  pointer-events: none;
-}
-
-.wavelength-card.is-visible::after {
-  animation: wavelength-sweep var(--duration-slow) var(--ease-out-soft) forwards;
-  animation-delay: calc(var(--reveal-index, 0) * var(--reveal-stagger-step) + var(--duration-fast));
-}
-
-@keyframes wavelength-sweep {
-  to {
-    transform: translateX(120%);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .wavelength-card::after {
-    display: none;
-  }
-}
-
-/* ---------------------------------------------------------------------
-   Module 5 — Before / after
+   Module 3 — Before / after
    --------------------------------------------------------------------- */
 
 .before-after {
   background: var(--color-bg-page);
+}
+
+.before-after .section-heading {
+  max-width: none;
+  text-align: center;
+  margin-inline: auto;
+}
+
+.before-after .section-heading p {
+  max-width: 56ch;
+  margin-inline: auto;
+}
+
+@media (min-width: 768px) {
+  .before-after .section-heading h2 {
+    white-space: nowrap;
+  }
+}
+
+.before-after .disclaimer,
+.before-after .section-cta {
+  text-align: center;
+  margin-inline: auto;
 }
 
 .disclaimer {
@@ -193,7 +539,9 @@
 }
 
 /* ---------------------------------------------------------------------
-   Module 6 — What it can help improve
+   "What it can help improve" — no longer used on the landing page
+   (superseded by the Module 2 concerns carousel). Kept because
+   thank-you.html's "Before your consultation" module still uses it.
    --------------------------------------------------------------------- */
 
 .improve {
@@ -218,15 +566,83 @@
 }
 
 /* ---------------------------------------------------------------------
-   Module 7 — Areas treated
+   Module 5 — Areas treated + candidacy
    --------------------------------------------------------------------- */
 
 .areas {
+  padding-block: clamp(var(--space-6), 5vw, var(--space-8));
   background: var(--color-bg-page);
 }
 
+.areas .section-heading {
+  max-width: none;
+  text-align: center;
+  margin-inline: auto;
+}
+
+@media (min-width: 1024px) {
+  .areas .section-heading h2 {
+    white-space: nowrap;
+  }
+}
+
+.areas .section-heading p {
+  max-width: 56ch;
+  margin-inline: auto;
+}
+
+.areas .section-cta {
+  text-align: center;
+  margin-inline: auto;
+}
+
+.areas__grid {
+  display: grid;
+  gap: var(--space-6);
+}
+
+@media (min-width: 768px) {
+  .areas__grid {
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+  }
+}
+
+.areas__divider {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .areas__divider {
+    display: block;
+    width: 1px;
+    align-self: stretch;
+    background: var(--color-border);
+  }
+}
+
+.areas__label {
+  margin: 0 0 var(--space-3);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--color-text-muted);
+}
+
+.areas__note {
+  margin: var(--space-3) 0 0;
+  font-size: var(--text-xs);
+  font-style: italic;
+  color: var(--color-text-muted);
+}
+
+.areas__candidacy-text {
+  margin: 0;
+  max-width: 44ch;
+  color: var(--color-text-muted);
+}
+
 /* ---------------------------------------------------------------------
-   Module 8 — $500 bonus (premium, not coupon-style)
+   Module 7 — $500 bonus (premium, not coupon-style)
    --------------------------------------------------------------------- */
 
 .bonus-callout {
@@ -246,7 +662,7 @@
 }
 
 /* ---------------------------------------------------------------------
-   Module 10 — FAQ
+   Module 9 — FAQ
    --------------------------------------------------------------------- */
 
 .faq {
@@ -258,7 +674,7 @@
 }
 
 /* ---------------------------------------------------------------------
-   Module 11 — Form section
+   Module 10 — Form section
    --------------------------------------------------------------------- */
 
 .consult-form-section {
@@ -282,7 +698,7 @@
 }
 
 /* ---------------------------------------------------------------------
-   Module 12 — Final CTA
+   Module 11 — Final CTA
    --------------------------------------------------------------------- */
 
 .final-cta {
@@ -291,11 +707,20 @@
 }
 
 .final-cta h2 {
-  color: var(--color-text-inverse);
+  color: #fad4e0;
 }
 
 .final-cta p {
   color: var(--color-text-inverse-muted);
+}
+
+.final-cta .btn--primary {
+  background: #fad4e0;
+  color: #303030;
+}
+
+.final-cta .btn--primary:hover {
+  background: #f5c1d3;
 }
 
 .final-cta__inner {
