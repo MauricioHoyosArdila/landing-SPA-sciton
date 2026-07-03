@@ -9,16 +9,16 @@
   /* ---------------------------------------------------------------------
      RAW PALETTE — colors lifted from the real regensmedspa.com brand
      --------------------------------------------------------------------- */
-  --raw-cream: #fbf6f2;
-  --raw-blush-wash: #f4e9e3;
   --raw-white: #ffffff;
+  --raw-pink-pale: #fff0f5;
+  --raw-pink-soft: #f9c7d6;
+  --raw-pink-action: #db5296;
+  --raw-pink-action-hover: #ba4680;
   --raw-blush-rose: #e6b9b4;
   --raw-deep-rose: #d28e8e;
-  --raw-terracotta: #bc5b82;
-  --raw-terracotta-dark: #db5296;
-  --raw-charcoal-warm: #303030;
-  --raw-charcoal-muted: #606060;
-  --raw-border-warm: #e7d9d0;
+  --raw-charcoal: #3b3b3b;
+  --raw-gray-text: #555555;
+  --raw-gray-border: #dbdbdb;
 
   /* tech insert — strictly scoped to the wavelength module + credibility badges */
   --raw-ink: #1a1d21;
@@ -33,32 +33,33 @@
   /* ---------------------------------------------------------------------
      SEMANTIC ROLES — components must reference these, never --raw-*
      --------------------------------------------------------------------- */
-  --color-bg-page: var(--raw-cream);
+  --color-bg-page: var(--raw-pink-pale);
   --color-bg-surface: var(--raw-white);
-  --color-bg-surface-alt: var(--raw-blush-wash);
-  --color-bg-inverse: var(--raw-ink);
+  --color-bg-surface-alt: var(--raw-white);
+  --color-bg-inverse: var(--raw-charcoal);
   --color-bg-inverse-elevated: var(--raw-ink-elevated);
 
-  --color-text-primary: var(--raw-charcoal-warm);
-  --color-text-muted: var(--raw-charcoal-muted);
+  --color-text-primary: var(--raw-charcoal);
+  --color-text-muted: var(--raw-gray-text);
   --color-text-inverse: var(--raw-white);
   --color-text-inverse-muted: var(--raw-white);
 
-  --color-brand-primary: var(--raw-terracotta);
-  --color-brand-primary-hover: var(--raw-terracotta-dark);
+  --color-brand-primary: var(--raw-pink-action);
+  --color-brand-primary-hover: var(--raw-pink-action-hover);
+  --color-brand-soft: var(--raw-pink-soft);
   --color-brand-secondary: var(--raw-blush-rose);
   --color-brand-accent: var(--raw-deep-rose);
 
   --color-tech-accent: var(--raw-steel);
   --color-tech-accent-bright: var(--raw-steel-bright);
 
-  --color-border: var(--raw-border-warm);
-  --color-border-inverse: var(--raw-ink-border);
-  --color-focus-ring: var(--raw-terracotta-dark);
+  --color-border: var(--raw-gray-border);
+  --color-border-inverse: rgb(255 255 255 / 0.16);
+  --color-focus-ring: var(--raw-pink-action-hover);
 
   --color-success: var(--raw-success);
   --color-error: var(--raw-error);
-  --color-overlay-scrim: rgb(26 22 19 / 0.55);
+  --color-overlay-scrim: rgb(0 0 0 / 0.55);
 
   /* ---------------------------------------------------------------------
      TYPOGRAPHY
@@ -115,12 +116,12 @@
   --radius-card-tech: var(--radius-sm);
 
   /* ---------------------------------------------------------------------
-     SHADOW — warm, diffuse (never neutral gray)
+     SHADOW — neutral charcoal, diffuse
      --------------------------------------------------------------------- */
-  --shadow-sm: 0 1px 2px rgb(146 100 79 / 0.08);
-  --shadow-md: 0 8px 24px rgb(146 100 79 / 0.12);
-  --shadow-lg: 0 20px 48px rgb(146 100 79 / 0.16);
-  --shadow-focus: 0 0 0 3px rgb(122 81 64 / 0.35);
+  --shadow-sm: 0 1px 2px rgb(59 59 59 / 0.08);
+  --shadow-md: 0 8px 24px rgb(59 59 59 / 0.12);
+  --shadow-lg: 0 20px 48px rgb(59 59 59 / 0.16);
+  --shadow-focus: 0 0 0 3px rgb(186 70 128 / 0.35);
   --shadow-tech: 0 12px 32px rgb(0 0 0 / 0.35);
 
   /* ---------------------------------------------------------------------

@@ -5,7 +5,7 @@ import { qsa } from "./utils.js";
 // carousel stays fully usable by scroll/swipe/keyboard even if this script
 // fails to load — this only adds the dot/arrow affordances on top. Dots are
 // optional: omit dotsContainer for a carousel that only needs arrows.
-export function initCarousel({ root, track, prevBtn, nextBtn, dotsContainer }) {
+export function initCarousel({ root, track, prevBtn, nextBtn, dotsContainer, stepMode = "item" }) {
   const rootEl = document.querySelector(root);
   const trackEl = document.querySelector(track);
   if (!rootEl || !trackEl) return;
@@ -41,8 +41,35 @@ export function initCarousel({ root, track, prevBtn, nextBtn, dotsContainer }) {
   // on activeIndex ± 1 like goTo() falls apart when several slides are visible
   // at once (e.g. a 3-up carousel): the "next" slide can already be centered,
   // so nothing scrolls. Stepping by a measured pixel distance always moves.
+  //
+  // stepMode "page" instead advances by the track's own visible width, so a
+  // carousel showing N slides at once pages to a fresh set of N rather than
+  // shifting by a single slide and leaving overlap from the previous view.
+  //
+  // Both directions loop: at the last slide, "next" wraps smoothly back to
+  // the start instead of going inert against the scroll boundary, and "prev"
+  // at the first slide wraps to the end. A small EDGE_TOLERANCE absorbs
+  // sub-pixel scroll-snap rounding so the edge check is reliable.
+  const EDGE_TOLERANCE = 4;
+
   function step(direction) {
     if (slides.length < 2) return;
+
+    const maxScrollLeft = trackEl.scrollWidth - trackEl.clientWidth;
+
+    if (direction > 0 && trackEl.scrollLeft >= maxScrollLeft - EDGE_TOLERANCE) {
+      trackEl.scrollTo({ left: 0, behavior: "smooth" });
+      return;
+    }
+    if (direction < 0 && trackEl.scrollLeft <= EDGE_TOLERANCE) {
+      trackEl.scrollTo({ left: maxScrollLeft, behavior: "smooth" });
+      return;
+    }
+
+    if (stepMode === "page") {
+      trackEl.scrollBy({ left: direction * trackEl.clientWidth, behavior: "smooth" });
+      return;
+    }
     const a = slides[0].getBoundingClientRect();
     const b = slides[1].getBoundingClientRect();
     trackEl.scrollBy({ left: direction * (b.left - a.left), behavior: "smooth" });

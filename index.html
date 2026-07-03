@@ -21,9 +21,47 @@
 
 <!-- ANNOUNCEMENT BAR -->
 <div class="announcement-bar" id="announcement-bar" role="region" aria-label="Promotion">
-  <p class="announcement-bar__text">
-    <strong>$500 bonus</strong> toward HALO TRIBRID this month. Consultation required.
-  </p>
+  <p class="sr-only">$500 bonus toward HALO TRIBRID this month. Consultation required.</p>
+  <div class="announcement-bar__viewport">
+    <div class="announcement-bar__track" aria-hidden="true">
+      <div class="announcement-bar__group">
+        <span class="announcement-bar__item"><strong>$500 bonus</strong> toward HALO TRIBRID this month. Consultation required.</span>
+        <span class="announcement-bar__sep">•</span>
+        <span class="announcement-bar__item"><strong>$500 bonus</strong> toward HALO TRIBRID this month. Consultation required.</span>
+        <span class="announcement-bar__sep">•</span>
+        <span class="announcement-bar__item"><strong>$500 bonus</strong> toward HALO TRIBRID this month. Consultation required.</span>
+        <span class="announcement-bar__sep">•</span>
+        <span class="announcement-bar__item"><strong>$500 bonus</strong> toward HALO TRIBRID this month. Consultation required.</span>
+        <span class="announcement-bar__sep">•</span>
+        <span class="announcement-bar__item"><strong>$500 bonus</strong> toward HALO TRIBRID this month. Consultation required.</span>
+        <span class="announcement-bar__sep">•</span>
+        <span class="announcement-bar__item"><strong>$500 bonus</strong> toward HALO TRIBRID this month. Consultation required.</span>
+        <span class="announcement-bar__sep">•</span>
+        <span class="announcement-bar__item"><strong>$500 bonus</strong> toward HALO TRIBRID this month. Consultation required.</span>
+        <span class="announcement-bar__sep">•</span>
+        <span class="announcement-bar__item"><strong>$500 bonus</strong> toward HALO TRIBRID this month. Consultation required.</span>
+        <span class="announcement-bar__sep">•</span>
+      </div>
+      <div class="announcement-bar__group">
+        <span class="announcement-bar__item"><strong>$500 bonus</strong> toward HALO TRIBRID this month. Consultation required.</span>
+        <span class="announcement-bar__sep">•</span>
+        <span class="announcement-bar__item"><strong>$500 bonus</strong> toward HALO TRIBRID this month. Consultation required.</span>
+        <span class="announcement-bar__sep">•</span>
+        <span class="announcement-bar__item"><strong>$500 bonus</strong> toward HALO TRIBRID this month. Consultation required.</span>
+        <span class="announcement-bar__sep">•</span>
+        <span class="announcement-bar__item"><strong>$500 bonus</strong> toward HALO TRIBRID this month. Consultation required.</span>
+        <span class="announcement-bar__sep">•</span>
+        <span class="announcement-bar__item"><strong>$500 bonus</strong> toward HALO TRIBRID this month. Consultation required.</span>
+        <span class="announcement-bar__sep">•</span>
+        <span class="announcement-bar__item"><strong>$500 bonus</strong> toward HALO TRIBRID this month. Consultation required.</span>
+        <span class="announcement-bar__sep">•</span>
+        <span class="announcement-bar__item"><strong>$500 bonus</strong> toward HALO TRIBRID this month. Consultation required.</span>
+        <span class="announcement-bar__sep">•</span>
+        <span class="announcement-bar__item"><strong>$500 bonus</strong> toward HALO TRIBRID this month. Consultation required.</span>
+        <span class="announcement-bar__sep">•</span>
+      </div>
+    </div>
+  </div>
   <button type="button" class="announcement-bar__dismiss" id="announcement-dismiss" aria-label="Dismiss announcement">
     <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 1L13 13M13 1L1 13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
   </button>
@@ -33,12 +71,37 @@
 <header class="site-header" id="site-header">
   <div class="container site-header__inner">
     <a href="#main" class="site-header__logo">
-      <img src="Img/Logo.svg" alt="Regenerative Med Spa" width="152" height="36" />
+      <img src="Img/__logo-cobrandig.png" alt="Regenerative Med Spa x HALO TRIBRID" width="205" height="34" />
     </a>
-    <div class="site-header__actions">
-      <a class="btn btn--primary" href="#consult-form">Book my consultation</a>
+
+    <nav class="site-header__nav" aria-label="Section navigation">
+      <a href="#hero">Home</a>
+      <a href="#concerns">Treatment</a>
+      <a href="#skin-layers">Technology</a>
+      <a href="#results">Before &amp; After</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+
+    <div class="site-header__right">
+      <button type="button" class="site-header__menu-toggle" id="site-header-menu-toggle" aria-expanded="false" aria-controls="site-header-mobile-nav" aria-label="Open menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+
+      <div class="site-header__actions">
+        <a class="btn btn--primary" href="#consult-form">Book my consultation</a>
+      </div>
     </div>
   </div>
+
+  <nav class="site-header__mobile-nav" id="site-header-mobile-nav" aria-label="Section navigation" hidden>
+    <a href="#hero">Home</a>
+    <a href="#concerns">Treatment</a>
+    <a href="#skin-layers">Technology</a>
+    <a href="#results">Before &amp; After</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#faq">FAQ</a>
+  </nav>
 </header>
 
 <main id="main">
@@ -71,12 +134,12 @@
   <section class="concerns" id="concerns" aria-labelledby="concerns-heading">
     <div class="container">
       <div class="section-heading" data-reveal>
-        <h2 id="concerns-heading">What it can improve</h2>
+        <h2 id="concerns-heading">What it can <span class="text-accent">improve</span></h2>
         <p>Designed to treat multiple skin concerns in a single, customized session.</p>
       </div>
 
       <div class="concerns-carousel" id="concerns-carousel" role="region" aria-roledescription="carousel" aria-label="Skin concerns HALO TRIBRID can improve">
-        <button type="button" class="ba-carousel__arrow concerns-carousel__arrow concerns-carousel__arrow--prev" id="concerns-prev" aria-label="Previous concern">&larr;</button>
+        <button type="button" class="ba-carousel__arrow concerns-carousel__arrow" id="concerns-prev" aria-label="Previous concern">&larr;</button>
 
         <div class="concerns-carousel__track" id="concerns-carousel-track">
           <article class="concern-card">
@@ -158,10 +221,8 @@
           </article>
         </div>
 
-        <button type="button" class="ba-carousel__arrow concerns-carousel__arrow concerns-carousel__arrow--next" id="concerns-next" aria-label="Next concern">&rarr;</button>
+        <button type="button" class="ba-carousel__arrow concerns-carousel__arrow" id="concerns-next" aria-label="Next concern">&rarr;</button>
       </div>
-
-      <div class="ba-carousel__dots concerns-carousel__dots" id="concerns-dots" role="tablist" aria-label="Choose concern"></div>
 
       <p class="disclaimer" data-reveal>*Results and candidacy vary. Confirmed during your consultation.</p>
       <div class="section-cta" data-reveal>
@@ -170,11 +231,68 @@
     </div>
   </section>
 
-  <!-- MODULE 3 — BEFORE AND AFTER PROOF -->
+  <!-- MODULE 3 — SMOOTH, BRIGHTEN, RENEW -->
+  <section class="skin-layers" id="skin-layers" aria-labelledby="skin-layers-heading">
+    <div class="container">
+      <div class="section-heading" data-reveal>
+        <p class="eyebrow">Powered by HALO TRIBRID</p>
+        <h2 id="skin-layers-heading">Smooth, brighten, <span class="text-accent">renew</span></h2>
+        <p>Three independently controlled wavelengths, each reaching a different depth of the skin, working together in one personalized treatment.</p>
+      </div>
+
+      <div class="skin-layers__grid">
+        <div class="skin-layers__media" data-reveal>
+          <img class="skin-layers__img" src="assets/images/skin-layers.png"
+               alt="Isometric cross-section illustration of skin layers targeted by HALO TRIBRID"
+               width="1560" height="2118" loading="lazy" decoding="async" />
+
+          <button type="button" class="skin-layers__marker" data-target="smooth" style="top: 35%;"
+                  aria-pressed="true" aria-label="Smooth — surface texture layer">
+            <span class="skin-layers__marker-dot"></span>
+          </button>
+          <button type="button" class="skin-layers__marker" data-target="brighten" style="top: 52%;"
+                  aria-pressed="false" aria-label="Brighten — pigment and capillary layer">
+            <span class="skin-layers__marker-dot"></span>
+          </button>
+          <button type="button" class="skin-layers__marker" data-target="renew" style="top: 88%;"
+                  aria-pressed="false" aria-label="Renew — deep tissue layer">
+            <span class="skin-layers__marker-dot"></span>
+          </button>
+        </div>
+
+        <div class="skin-layers__content" data-reveal style="--reveal-index:1;">
+          <div class="skin-layers__tabs" role="tablist" aria-label="HALO TRIBRID benefits">
+            <button type="button" class="skin-layers__tab is-active" data-target="smooth"
+                    role="tab" id="skin-layers-tab-smooth" aria-selected="true" aria-controls="skin-layers-panel">
+              Smooth<span class="skin-layers__tab-nm">2940 nm</span>
+            </button>
+            <button type="button" class="skin-layers__tab" data-target="brighten"
+                    role="tab" id="skin-layers-tab-brighten" aria-selected="false" aria-controls="skin-layers-panel">
+              Brighten<span class="skin-layers__tab-nm">1927 nm</span>
+            </button>
+            <button type="button" class="skin-layers__tab" data-target="renew"
+                    role="tab" id="skin-layers-tab-renew" aria-selected="false" aria-controls="skin-layers-panel">
+              Renew<span class="skin-layers__tab-nm">1470 nm</span>
+            </button>
+          </div>
+
+          <div class="skin-layers__panel" id="skin-layers-panel" role="tabpanel" aria-labelledby="skin-layers-tab-smooth">
+            <p>Refines texture and softens the look of rough, uneven skin.</p>
+          </div>
+
+          <div class="section-cta">
+            <a class="btn btn--primary" href="#consult-form">Ask if it's right for you</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODULE 4 — BEFORE AND AFTER PROOF -->
   <section class="before-after" id="results" aria-labelledby="results-heading">
     <div class="container">
       <div class="section-heading" data-reveal>
-        <h2 id="results-heading">Real skin renewal results</h2>
+        <h2 id="results-heading">Real skin <span class="text-accent">renewal results</span></h2>
         <p>
           Before and after cases show what advanced laser resurfacing can look like when
           treatment is customized to the skin in front of us.
@@ -250,53 +368,76 @@
     </div>
   </section>
 
-  <!-- MODULE 4 — SMOOTH, BRIGHTEN, RENEW -->
-  <section class="skin-layers" id="skin-layers" aria-labelledby="skin-layers-heading">
+  <!-- MODULE 5 — AREAS TREATED + CANDIDACY -->
+  <section class="areas" id="areas" aria-labelledby="areas-heading">
     <div class="container">
-      <div class="section-heading" data-reveal>
-        <p class="eyebrow">Powered by HALO TRIBRID</p>
-        <h2 id="skin-layers-heading">Smooth, brighten, renew</h2>
-        <p>Three independently controlled wavelengths, each reaching a different depth of the skin, working together in one personalized treatment.</p>
-      </div>
-
-      <div class="skin-layers__grid">
-        <div class="skin-layers__media" data-reveal>
-          <img class="skin-layers__img" src="assets/images/skin-layers.png"
-               alt="Isometric cross-section illustration of skin layers targeted by HALO TRIBRID"
-               width="1560" height="2118" loading="lazy" decoding="async" />
-
-          <button type="button" class="skin-layers__marker" data-target="smooth" style="top: 35%;"
-                  aria-pressed="true" aria-label="Smooth — surface texture layer">
-            <span class="skin-layers__marker-dot"></span>
-          </button>
-          <button type="button" class="skin-layers__marker" data-target="brighten" style="top: 52%;"
-                  aria-pressed="false" aria-label="Brighten — pigment and capillary layer">
-            <span class="skin-layers__marker-dot"></span>
-          </button>
-          <button type="button" class="skin-layers__marker" data-target="renew" style="top: 88%;"
-                  aria-pressed="false" aria-label="Renew — deep tissue layer">
-            <span class="skin-layers__marker-dot"></span>
-          </button>
+      <div class="areas__grid">
+        <div class="areas__media" data-reveal>
+          <img class="areas__photo" src="Img/1_Consultation room.jpg" alt="Provider holding the HALO TRIBRID treatment handpiece" loading="lazy" decoding="async" />
         </div>
 
-        <div class="skin-layers__content" data-reveal style="--reveal-index:1;">
-          <div class="skin-layers__tabs" role="tablist" aria-label="HALO TRIBRID benefits">
-            <button type="button" class="skin-layers__tab is-active" data-target="smooth"
-                    role="tab" id="skin-layers-tab-smooth" aria-selected="true" aria-controls="skin-layers-panel">
-              Smooth<span class="skin-layers__tab-nm">2940 nm</span>
-            </button>
-            <button type="button" class="skin-layers__tab" data-target="brighten"
-                    role="tab" id="skin-layers-tab-brighten" aria-selected="false" aria-controls="skin-layers-panel">
-              Brighten<span class="skin-layers__tab-nm">1927 nm</span>
-            </button>
-            <button type="button" class="skin-layers__tab" data-target="renew"
-                    role="tab" id="skin-layers-tab-renew" aria-selected="false" aria-controls="skin-layers-panel">
-              Renew<span class="skin-layers__tab-nm">1470 nm</span>
-            </button>
+        <div class="areas__col" data-reveal style="--reveal-index:1;">
+          <div class="section-heading">
+            <h2 id="areas-heading">Is it right for you<br /><span class="text-accent">and where</span></h2>
+            <p>
+              Treatment is customized based on your skin and the areas you want to improve<br />
+              confirmed during your evaluation.
+            </p>
           </div>
 
-          <div class="skin-layers__panel" id="skin-layers-panel" role="tabpanel" aria-labelledby="skin-layers-tab-smooth">
-            <p>Refines texture and softens the look of rough, uneven skin.</p>
+          <div class="areas__section">
+            <p class="areas__label">Treatable areas</p>
+            <ul class="areas-grid" role="list">
+              <li class="area-card">
+                <span class="area-card__icon-badge"><svg class="area-card__icon" aria-hidden="true" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6">
+  <circle cx="16" cy="16" r="12"/>
+  <path d="M12 14v1M20 14v1" stroke-linecap="round"/>
+  <path d="M13 21c1.5 1.2 4.5 1.2 6 0" stroke-linecap="round"/>
+</svg></span><span>Face</span>
+              </li>
+              <li class="area-card">
+                <span class="area-card__icon-badge"><svg class="area-card__icon" aria-hidden="true" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M12 4v9a4 4 0 008 0V4"/>
+  <path d="M5 28c1.5-7 6.5-12 11-12s9.5 5 11 12"/>
+</svg></span><span>Neck</span>
+              </li>
+              <li class="area-card">
+                <span class="area-card__icon-badge"><svg class="area-card__icon" aria-hidden="true" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round">
+  <path d="M16 9L11 5 5 9l3 5 3-2v18h10V12l3 2 3-5-6-4z"/>
+</svg></span><span>Chest</span>
+              </li>
+              <li class="area-card">
+                <span class="area-card__icon-badge"><svg class="area-card__icon" aria-hidden="true" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M11 14V7a1.8 1.8 0 013.6 0v6M14.6 13V5.5a1.8 1.8 0 013.6 0V13M18.2 13.5V6.8a1.8 1.8 0 013.6 0v9.7"/>
+  <path d="M21.8 12.5a1.8 1.8 0 013.6 0v7.7c0 4-3 7.3-7 7.3h-2c-3 0-4.7-1.2-6.3-3.6L7 19.4c-.8-1.2-.4-2.3.6-2.9.9-.6 2-.3 2.7.6l1.7 2.4"/>
+</svg></span><span>Hands</span>
+              </li>
+              <li class="area-card">
+                <span class="area-card__icon-badge"><svg class="area-card__icon" aria-hidden="true" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M9 7v11h11"/>
+  <circle cx="23" cy="18" r="3"/>
+</svg></span><span>Arms</span>
+              </li>
+              <li class="area-card">
+                <span class="area-card__icon-badge"><svg class="area-card__icon" aria-hidden="true" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M12 6h8"/>
+  <path d="M13 6l-1 12-2 8"/>
+  <path d="M19 6l1 12 2 8"/>
+</svg></span><span>Legs</span>
+              </li>
+            </ul>
+            <p class="areas__note">Body areas confirmed during your consultation.</p>
+          </div>
+
+          <div class="areas__hr" aria-hidden="true"></div>
+
+          <div class="areas__section">
+            <p class="areas__label">Is your skin a candidate</p>
+            <p class="areas__candidacy-text">
+              Designed to work across a range of skin tones and types. Your provider confirms
+              candidacy based on your skin, tone, sensitivity and treatment history during your
+              consultation.
+            </p>
           </div>
 
           <div class="section-cta">
@@ -307,170 +448,75 @@
     </div>
   </section>
 
-  <!-- MODULE 5 — AREAS TREATED + CANDIDACY -->
-  <section class="areas" id="areas" aria-labelledby="areas-heading">
+  <!-- MODULE 6 — WHAT PATIENTS ARE SAYING -->
+  <section class="reviews" id="reviews" aria-labelledby="reviews-heading">
     <div class="container">
       <div class="section-heading" data-reveal>
-        <h2 id="areas-heading">Is it right for you, and where</h2>
-        <p>
-          Treatment is customized based on your skin and the areas you want to improve,
-          confirmed during your evaluation.
-        </p>
+        <h2 id="reviews-heading">What patients are <span class="text-accent">saying</span></h2>
       </div>
 
-      <div class="areas__grid">
-        <div class="areas__col" data-reveal>
-          <p class="areas__label">Treatable areas</p>
-          <ul class="areas-grid" role="list">
-            <li class="area-card">
-              <svg class="area-card__icon" aria-hidden="true" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6">
-  <circle cx="16" cy="16" r="12"/>
-  <path d="M12 14v1M20 14v1" stroke-linecap="round"/>
-  <path d="M13 21c1.5 1.2 4.5 1.2 6 0" stroke-linecap="round"/>
-</svg><span>Face</span>
-            </li>
-            <li class="area-card">
-              <svg class="area-card__icon" aria-hidden="true" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6">
-  <circle cx="16" cy="9" r="6"/>
-  <path d="M12 14v3a4 4 0 008 0v-3" stroke-linecap="round"/>
-  <path d="M6 27c2-4 6-6 10-6s8 2 10 6" stroke-linecap="round"/>
-</svg><span>Neck</span>
-            </li>
-            <li class="area-card">
-              <svg class="area-card__icon" aria-hidden="true" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6">
-  <path d="M16 8c-2-3-8-3-10 1-2 4 0 12 10 16 10-4 12-12 10-16-2-4-8-4-10-1z" stroke-linejoin="round"/>
-</svg><span>Chest</span>
-            </li>
-            <li class="area-card">
-              <svg class="area-card__icon" aria-hidden="true" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-  <path d="M11 14V7a1.8 1.8 0 013.6 0v6M14.6 13V5.5a1.8 1.8 0 013.6 0V13M18.2 13.5V6.8a1.8 1.8 0 013.6 0v9.7"/>
-  <path d="M21.8 12.5a1.8 1.8 0 013.6 0v7.7c0 4-3 7.3-7 7.3h-2c-3 0-4.7-1.2-6.3-3.6L7 19.4c-.8-1.2-.4-2.3.6-2.9.9-.6 2-.3 2.7.6l1.7 2.4"/>
-</svg><span>Hands</span>
-            </li>
-            <li class="area-card">
-              <svg class="area-card__icon" aria-hidden="true" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
-  <path d="M9 5c8 0 6 9 12 11"/>
-  <path d="M23 12l2 4-4.5 1.5"/>
-</svg><span>Arms</span>
-            </li>
-            <li class="area-card">
-              <svg class="area-card__icon" aria-hidden="true" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
-  <path d="M12 5l-1 13-3 9"/>
-  <path d="M20 5l1 13 3 9"/>
-  <path d="M11 18h10"/>
-</svg><span>Legs</span>
-            </li>
-          </ul>
-          <p class="areas__note">Body areas confirmed during your consultation.</p>
-        </div>
-
-        <div class="areas__divider" aria-hidden="true"></div>
-
-        <div class="areas__col areas__col--candidacy" data-reveal style="--reveal-index:1;">
-          <p class="areas__label">Is your skin a candidate</p>
-          <p class="areas__candidacy-text">
-            Designed to work across a range of skin tones and types. Your provider confirms
-            candidacy based on your skin, tone, sensitivity and treatment history during your
-            consultation.
-          </p>
-        </div>
+      <div class="reviews__rating" data-reveal>
+        <span class="reviews__stars" role="img" aria-label="5 out of 5 stars">★★★★★</span>
+        <span class="reviews__rating-text">5.0 based on 38 Google reviews</span>
       </div>
+
+      <p class="reviews__why-label" data-reveal>Why Regenerative Med Spa</p>
+
+      <ul class="reviews__pills" role="list" data-reveal>
+        <li class="reviews__pill">
+          <svg class="reviews__pill-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <rect x="4" y="3" width="16" height="11" rx="1.5"/>
+  <path d="M7.5 7h9M7.5 10h5"/>
+  <path d="M9 14l-1.3 6.5L12 18.5l4.3 2-1.3-6.5"/>
+</svg>
+          <span>Board-certified providers</span>
+        </li>
+        <li class="reviews__pill">
+          <svg class="reviews__pill-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <rect x="5" y="4" width="14" height="17" rx="2"/>
+  <path d="M9 4a1 1 0 011-1h4a1 1 0 011 1v1.5H9z"/>
+  <path d="M9 13l2.2 2.2L15.5 11"/>
+</svg>
+          <span>Personalized evaluations</span>
+        </li>
+        <li class="reviews__pill">
+          <svg class="reviews__pill-icon" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+  <path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z"/>
+</svg>
+          <span>Advanced Sciton technology</span>
+        </li>
+        <li class="reviews__pill">
+          <svg class="reviews__pill-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M12 21s7-7.58 7-12a7 7 0 10-14 0c0 4.42 7 12 7 12z"/>
+  <circle cx="12" cy="9" r="2.3"/>
+</svg>
+          <span>First in Orlando with HALO TRIBRID</span>
+        </li>
+      </ul>
+
+      <ul class="reviews__track" id="reviews-track" role="list" aria-label="Patient reviews" data-reveal></ul>
 
       <div class="section-cta" data-reveal>
-        <a class="btn btn--primary" href="#consult-form">Ask if it's right for you</a>
+        <a class="btn btn--primary" href="https://share.google/LsTwxgFKCOGCyqJ2a" target="_blank" rel="noopener noreferrer">Read more reviews</a>
       </div>
     </div>
   </section>
 
-  <!-- MODULE 6 — SPA POSITIONING + TECHNOLOGY INTRODUCTION -->
-  <section class="editorial-block" id="spa-positioning" aria-labelledby="spa-positioning-heading">
-    <div class="container editorial-block__grid">
-      <div class="editorial-block__media" data-reveal>
-        <img class="placeholder-img" src="assets/images/hero/spa-team-placeholder.svg"
-             alt="Placeholder — Regenerative Med Spa providers in a personalized consultation"
-             width="800" height="1000" loading="lazy" decoding="async" />
-      </div>
-      <div class="editorial-block__copy" data-reveal style="--reveal-index:1;">
-        <h2 id="spa-positioning-heading">Regenerative Med Spa brings next-generation skin renewal to Orlando</h2>
-        <p>
-          At Regenerative Med Spa, skin renewal starts with a personalized evaluation, not a
-          generic treatment plan.
-        </p>
-        <p>
-          HALO TRIBRID is part of our commitment to bringing advanced aesthetic technology to
-          Lake Nona and offering patients a more precise way to improve visible skin quality.
-        </p>
-        <p>
-          This technology allows our providers to address different concerns in one customized
-          laser resurfacing treatment, including texture, pigment, pores, acne scars, fine lines
-          and overall skin radiance.
-        </p>
-        <ul class="value-points">
-          <li>Personalized skin evaluation</li>
-          <li>Advanced Sciton laser technology</li>
-          <li>Medical aesthetic care in Lake Nona</li>
-          <li>Customized treatment planning</li>
-          <li>One of the first in Orlando to offer HALO TRIBRID</li>
-        </ul>
-        <a class="btn btn--primary" href="#consult-form">Book your skin evaluation</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- MODULE 7 — $500 BONUS -->
-  <section class="bonus-callout" id="bonus" aria-labelledby="bonus-heading">
-    <div class="container bonus-callout__inner" data-reveal>
-      <h2 id="bonus-heading">Claim your $500 bonus toward HALO TRIBRID</h2>
-      <p>
-        This month, patients can claim a $500 bonus toward HALO TRIBRID at Regenerative Med Spa.
-      </p>
-      <p>
-        This bonus is designed for patients ready to take the next step toward smoother,
-        brighter, renewed-looking skin with advanced laser resurfacing.
-      </p>
-      <a class="btn btn--primary btn--lg" href="#consult-form">Ask how to apply your bonus</a>
-      <p class="microcopy">
-        Bonus applies toward HALO TRIBRID only. Consultation required. Terms and eligibility may vary.
-      </p>
-    </div>
-  </section>
-
-  <!-- MODULE 8 — WHY CONSULTATION MATTERS -->
-  <section class="editorial-block editorial-block--reverse" id="consultation" aria-labelledby="consultation-heading">
-    <div class="container editorial-block__grid">
-      <div class="editorial-block__media" data-reveal>
-        <img class="placeholder-img" src="assets/images/hero/consultation-room-placeholder.svg"
-             alt="Placeholder — Regenerative Med Spa consultation room" width="800" height="1000" loading="lazy" decoding="async" />
-      </div>
-      <div class="editorial-block__copy" data-reveal style="--reveal-index:1;">
-        <h2 id="consultation-heading">Your skin needs a plan, not a guess</h2>
-        <p>
-          Not every dark spot, acne scar, wrinkle or texture concern should be treated the same way.
-        </p>
-        <p>
-          Your consultation allows our team to evaluate your skin type, treatment history,
-          pigmentation, sensitivity, goals and areas of concern before recommending a plan.
-        </p>
-        <p>
-          At Regenerative Med Spa, the goal is to determine candidacy, explain what to expect
-          and customize the treatment to your skin.
-        </p>
-        <a class="btn btn--primary" href="#consult-form">Schedule your evaluation</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- MODULE 9 — FAQ -->
+  <!-- MODULE 7 — FAQ -->
   <section class="faq" id="faq" aria-labelledby="faq-heading">
     <div class="container">
-      <h2 id="faq-heading" data-reveal>Frequently asked questions</h2>
+      <div class="faq__header" data-reveal>
+        <h2 id="faq-heading">Got questions? <span class="faq__title-accent">We've got answers</span></h2>
+        <p class="faq__subtitle">Everything you need to know about HALO TRIBRID, from treatment to consultation.</p>
+      </div>
 
+      <div class="faq__card" data-reveal>
       <div class="accordion" id="faq-accordion">
         <div class="accordion__item">
           <h3>
             <button type="button" class="accordion__trigger" aria-expanded="false" aria-controls="faq-panel-1" id="faq-trigger-1">
               What is HALO TRIBRID?
-              <svg class="accordion__chevron" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 6l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <svg class="accordion__chevron" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v12M2 8h12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
             </button>
           </h3>
           <div class="accordion__panel" id="faq-panel-1" role="region" aria-labelledby="faq-trigger-1">
@@ -482,7 +528,7 @@
           <h3>
             <button type="button" class="accordion__trigger" aria-expanded="false" aria-controls="faq-panel-2" id="faq-trigger-2">
               What concerns can it help improve?
-              <svg class="accordion__chevron" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 6l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <svg class="accordion__chevron" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v12M2 8h12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
             </button>
           </h3>
           <div class="accordion__panel" id="faq-panel-2" role="region" aria-labelledby="faq-trigger-2">
@@ -494,7 +540,7 @@
           <h3>
             <button type="button" class="accordion__trigger" aria-expanded="false" aria-controls="faq-panel-3" id="faq-trigger-3">
               Can it help with dark spots and sun damage?
-              <svg class="accordion__chevron" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 6l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <svg class="accordion__chevron" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v12M2 8h12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
             </button>
           </h3>
           <div class="accordion__panel" id="faq-panel-3" role="region" aria-labelledby="faq-trigger-3">
@@ -506,7 +552,7 @@
           <h3>
             <button type="button" class="accordion__trigger" aria-expanded="false" aria-controls="faq-panel-4" id="faq-trigger-4">
               Can it help with acne scars?
-              <svg class="accordion__chevron" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 6l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <svg class="accordion__chevron" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v12M2 8h12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
             </button>
           </h3>
           <div class="accordion__panel" id="faq-panel-4" role="region" aria-labelledby="faq-trigger-4">
@@ -518,7 +564,7 @@
           <h3>
             <button type="button" class="accordion__trigger" aria-expanded="false" aria-controls="faq-panel-5" id="faq-trigger-5">
               Is it only for the face?
-              <svg class="accordion__chevron" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 6l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <svg class="accordion__chevron" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v12M2 8h12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
             </button>
           </h3>
           <div class="accordion__panel" id="faq-panel-5" role="region" aria-labelledby="faq-trigger-5">
@@ -530,7 +576,7 @@
           <h3>
             <button type="button" class="accordion__trigger" aria-expanded="false" aria-controls="faq-panel-6" id="faq-trigger-6">
               How many treatments will I need?
-              <svg class="accordion__chevron" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 6l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <svg class="accordion__chevron" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v12M2 8h12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
             </button>
           </h3>
           <div class="accordion__panel" id="faq-panel-6" role="region" aria-labelledby="faq-trigger-6">
@@ -542,7 +588,7 @@
           <h3>
             <button type="button" class="accordion__trigger" aria-expanded="false" aria-controls="faq-panel-7" id="faq-trigger-7">
               Is there downtime?
-              <svg class="accordion__chevron" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 6l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <svg class="accordion__chevron" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v12M2 8h12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
             </button>
           </h3>
           <div class="accordion__panel" id="faq-panel-7" role="region" aria-labelledby="faq-trigger-7">
@@ -554,7 +600,7 @@
           <h3>
             <button type="button" class="accordion__trigger" aria-expanded="false" aria-controls="faq-panel-8" id="faq-trigger-8">
               Is a consultation required?
-              <svg class="accordion__chevron" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 6l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <svg class="accordion__chevron" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v12M2 8h12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
             </button>
           </h3>
           <div class="accordion__panel" id="faq-panel-8" role="region" aria-labelledby="faq-trigger-8">
@@ -562,43 +608,32 @@
           </div>
         </div>
       </div>
+      </div>
     </div>
   </section>
 
-  <!-- MODULE 10 — FORM SECTION -->
+  <!-- MODULE 8 — FORM SECTION -->
   <section class="consult-form-section" id="consult-form" aria-labelledby="consult-form-heading">
     <div class="container consult-form-section__grid">
       <div class="consult-form-section__copy" data-reveal>
         <h2 id="consult-form-heading">Book your skin renewal consultation</h2>
-        <p>Tell us what you would like to improve, and our team will help you take the next step.</p>
-        <p>
-          During your consultation, we will evaluate your skin, discuss your goals and
-          determine if HALO TRIBRID is right for you.
-        </p>
-        <p class="bonus-reminder">Ask how to apply your $500 bonus toward HALO TRIBRID.</p>
-        <a class="phone-link" href="tel:4077305600">
-          <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8c1.4 2.7 3.6 4.9 6.3 6.3l2.1-2.1c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.5.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.6c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.5.1.4 0 .8-.2 1l-2.1 2.1z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
-          407.730.5600
-        </a>
+        <p>Tell us what you'd like to improve and we'll help you take the next step.</p>
+        <p class="bonus-line">Claim your $500 bonus</p>
       </div>
 
       <form class="consult-form" id="consult-form-element" novalidate>
-        <div class="form-field">
-          <label for="first-name">First name <span aria-hidden="true">*</span></label>
-          <input type="text" id="first-name" name="firstName" autocomplete="given-name" aria-describedby="first-name-error" required />
-          <p class="form-field__error" id="first-name-error" role="alert"></p>
-        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="full-name">Full name <span aria-hidden="true">*</span></label>
+            <input type="text" id="full-name" name="fullName" autocomplete="name" aria-describedby="full-name-error" required />
+            <p class="form-field__error" id="full-name-error" role="alert"></p>
+          </div>
 
-        <div class="form-field">
-          <label for="last-name">Last name <span aria-hidden="true">*</span></label>
-          <input type="text" id="last-name" name="lastName" autocomplete="family-name" aria-describedby="last-name-error" required />
-          <p class="form-field__error" id="last-name-error" role="alert"></p>
-        </div>
-
-        <div class="form-field">
-          <label for="phone">Phone number <span aria-hidden="true">*</span></label>
-          <input type="tel" id="phone" name="phone" autocomplete="tel" aria-describedby="phone-error" required />
-          <p class="form-field__error" id="phone-error" role="alert"></p>
+          <div class="form-field">
+            <label for="phone">Phone number <span aria-hidden="true">*</span></label>
+            <input type="tel" id="phone" name="phone" autocomplete="tel" aria-describedby="phone-error" required />
+            <p class="form-field__error" id="phone-error" role="alert"></p>
+          </div>
         </div>
 
         <div class="form-field">
@@ -607,63 +642,72 @@
           <p class="form-field__error" id="email-error" role="alert"></p>
         </div>
 
-        <div class="form-field">
-          <label for="main-concern">Main skin concern</label>
-          <select id="main-concern" name="mainConcern">
-            <option value="">Select an option</option>
-            <option value="dark-spots-sun-damage">Dark spots or sun damage</option>
-            <option value="fine-lines-wrinkles">Fine lines or wrinkles</option>
-            <option value="acne-scars">Acne scars</option>
-            <option value="visible-pores">Visible pores</option>
-            <option value="rough-texture">Rough texture</option>
-            <option value="uneven-tone">Uneven tone</option>
-            <option value="dull-skin">Dull skin</option>
-            <option value="overall-skin-quality">Overall skin quality</option>
-            <option value="not-sure">I am not sure</option>
-          </select>
-        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label id="main-concern-label">Main skin concern</label>
+            <div class="multiselect" data-multiselect>
+              <button type="button" class="multiselect__trigger" aria-haspopup="true" aria-expanded="false" aria-controls="main-concern-panel" aria-labelledby="main-concern-label">
+                <span class="multiselect__trigger-text" data-multiselect-summary>Select concerns</span>
+                <svg class="multiselect__chevron" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 6l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+              <div class="multiselect__panel" id="main-concern-panel" role="group" aria-label="Main skin concern options" hidden>
+                <label class="multiselect__option"><input type="checkbox" name="mainConcern" value="dark-spots" /><span>Dark spots</span></label>
+                <label class="multiselect__option"><input type="checkbox" name="mainConcern" value="sun-damage" /><span>Sun damage</span></label>
+                <label class="multiselect__option"><input type="checkbox" name="mainConcern" value="uneven-tone" /><span>Uneven tone</span></label>
+                <label class="multiselect__option"><input type="checkbox" name="mainConcern" value="fine-lines" /><span>Fine lines</span></label>
+                <label class="multiselect__option"><input type="checkbox" name="mainConcern" value="rough-texture" /><span>Rough texture</span></label>
+                <label class="multiselect__option"><input type="checkbox" name="mainConcern" value="visible-pores" /><span>Visible pores</span></label>
+                <label class="multiselect__option"><input type="checkbox" name="mainConcern" value="acne-scars" /><span>Acne scars</span></label>
+                <label class="multiselect__option"><input type="checkbox" name="mainConcern" value="dull-skin" /><span>Dull skin</span></label>
+              </div>
+            </div>
+          </div>
 
-        <div class="form-field">
-          <label for="treatment-area">Treatment area</label>
-          <select id="treatment-area" name="treatmentArea">
-            <option value="">Select an option</option>
-            <option value="face">Face</option>
-            <option value="neck">Neck</option>
-            <option value="chest">Chest</option>
-            <option value="hands">Hands</option>
-            <option value="arms">Arms</option>
-            <option value="legs">Legs</option>
-            <option value="multiple-areas">Multiple areas</option>
-            <option value="not-sure">I am not sure</option>
-          </select>
+          <div class="form-field">
+            <label id="treatment-area-label">Treatment area</label>
+            <div class="multiselect" data-multiselect>
+              <button type="button" class="multiselect__trigger" aria-haspopup="true" aria-expanded="false" aria-controls="treatment-area-panel" aria-labelledby="treatment-area-label">
+                <span class="multiselect__trigger-text" data-multiselect-summary>Select areas</span>
+                <svg class="multiselect__chevron" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 6l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+              <div class="multiselect__panel" id="treatment-area-panel" role="group" aria-label="Treatment area options" hidden>
+                <label class="multiselect__option"><input type="checkbox" name="treatmentArea" value="face" /><span>Face</span></label>
+                <label class="multiselect__option"><input type="checkbox" name="treatmentArea" value="neck" /><span>Neck</span></label>
+                <label class="multiselect__option"><input type="checkbox" name="treatmentArea" value="chest" /><span>Chest</span></label>
+                <label class="multiselect__option"><input type="checkbox" name="treatmentArea" value="hands" /><span>Hands</span></label>
+                <label class="multiselect__option"><input type="checkbox" name="treatmentArea" value="arms" /><span>Arms</span></label>
+                <label class="multiselect__option"><input type="checkbox" name="treatmentArea" value="legs" /><span>Legs</span></label>
+              </div>
+            </div>
+          </div>
         </div>
-
-        <fieldset class="form-field form-field--radio-group">
-          <legend>Preferred contact method</legend>
-          <label class="radio-option"><input type="radio" name="contactMethod" value="phone-call" /> Phone call</label>
-          <label class="radio-option"><input type="radio" name="contactMethod" value="text-message" /> Text message</label>
-          <label class="radio-option"><input type="radio" name="contactMethod" value="email" /> Email</label>
-        </fieldset>
 
         <div class="form-field">
           <label for="message">Message</label>
-          <textarea id="message" name="message" rows="4" placeholder="Tell us what you would like to improve or ask us a question."></textarea>
+          <textarea id="message" name="message" rows="2" placeholder="Anything else you'd like us to know? (optional)"></textarea>
         </div>
 
-        <button type="submit" class="btn btn--primary btn--lg btn--full">Request my consultation</button>
-        <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
-        <p class="microcopy">
-          By submitting this form, you agree to be contacted by Regenerative Med Spa regarding
-          your inquiry. Consultation required to determine candidacy.
-        </p>
+        <div class="form-field">
+          <label class="checkbox-option">
+            <input type="checkbox" id="consent" name="consent" aria-describedby="consent-error" required />
+            <span>I agree to be contacted by Regenerative Med Spa by phone, text, or email regarding my inquiry.</span>
+          </label>
+          <p class="form-field__error" id="consent-error" role="alert"></p>
+        </div>
+
+        <div class="consult-form__submit">
+          <button type="submit" class="btn btn--primary btn--lg btn--full">Request my consultation</button>
+          <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+          <p class="microcopy">Consultation required to determine candidacy.</p>
+        </div>
       </form>
     </div>
   </section>
 
-  <!-- MODULE 11 — FINAL CTA -->
+  <!-- MODULE 9 — FINAL CTA -->
   <section class="final-cta" id="final-cta" aria-labelledby="final-cta-heading">
     <div class="container final-cta__inner" data-reveal>
-      <h2 id="final-cta-heading">Ready for smoother, brighter, renewed-looking skin?</h2>
+      <h2 id="final-cta-heading"><span class="final-cta__heading-white">Ready for smoother, brighter,</span> renewed-looking skin?</h2>
       <p>Regenerative Med Spa is bringing advanced HALO TRIBRID skin renewal to Lake Nona, Orlando.</p>
       <p>
         If you are concerned with dark spots, sun damage, fine lines, acne scars, pores, rough
@@ -671,22 +715,54 @@
       </p>
       <div class="final-cta__ctas">
         <a class="btn btn--primary btn--lg" href="#consult-form">Book your consultation</a>
-        <a class="btn btn--ghost btn--ghost--inverse" href="tel:4077305600">Call 407.730.5600</a>
+        <a class="btn btn--outline btn--lg" href="tel:4077305600">Call 407-730-5600</a>
       </div>
-      <address class="contact-block">
-        Regenerative Med Spa<br />
-        10920 Moss Park Rd. Suite 218<br />
-        Orlando, FL 32832<br />
-        <a href="tel:4077305600">407.730.5600</a>
-      </address>
     </div>
   </section>
 
 </main>
 
 <footer class="site-footer">
+  <div class="container site-footer__grid">
+    <div class="site-footer__brand">
+      <a href="#main" class="site-footer__logo">
+        <img src="Img/logo-medspa-01.png" alt="Regenerative Med Spa" width="170" height="34" />
+      </a>
+      <p class="site-footer__tagline">Advanced medical aesthetics. Personalized care.</p>
+      <div class="site-footer__social">
+        <a class="site-footer__social-link" href="https://www.facebook.com/regens3medspa/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" /></svg>
+        </a>
+        <a class="site-footer__social-link" href="https://www.instagram.com/regenerativemedspa/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" /></svg>
+        </a>
+        <a class="site-footer__social-link" href="tel:4077305600" aria-label="Call Regenerative Med Spa">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M6.6 10.8c1.4 2.7 3.6 4.9 6.3 6.3l2.1-2.1c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.5.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.6c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.5.1.4 0 .8-.2 1l-2.1 2.1z" /></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="site-footer__contact-col">
+      <p class="site-footer__location-heading">Our Location</p>
+      <address class="site-footer__contact">
+        <p>
+          <svg class="site-footer__contact-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-7.58 7-12a7 7 0 10-14 0c0 4.42 7 12 7 12z"/><circle cx="12" cy="9" r="2.3"/></svg>
+          <span>10920 Moss Park Rd. Suite 218, Orlando, FL 32832</span>
+        </p>
+        <p>
+          <svg class="site-footer__contact-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+          <a href="mailto:info@regens3.com">info@regens3.com</a>
+        </p>
+        <p>
+          <svg class="site-footer__contact-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M6.6 10.8c1.4 2.7 3.6 4.9 6.3 6.3l2.1-2.1c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.5.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.6c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.5.1.4 0 .8-.2 1l-2.1 2.1z"/></svg>
+          <a href="tel:4077305600">407-730-5600</a>
+        </p>
+      </address>
+    </div>
+  </div>
+
   <div class="container">
-    <p>&copy; <span id="current-year">2026</span> Regenerative Med Spa. HALO is a registered trademark and TRIBRID is a trademark of Sciton, Inc.</p>
+    <p class="site-footer__copyright">&copy; <span id="current-year">2026</span> Regenerative Med Spa. HALO is a registered trademark and TRIBRID is a trademark of Sciton, Inc.</p>
   </div>
 </footer>
 

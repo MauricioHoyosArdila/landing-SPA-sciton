@@ -58,7 +58,14 @@
   padding-inline: var(--space-3);
 }
 
-.btn--ghost--inverse {
+.btn--outline {
+  background: transparent;
+  color: var(--color-brand-primary);
+  border: 1.5px solid var(--color-brand-primary);
+}
+
+.btn--outline:hover {
+  background: var(--color-brand-primary);
   color: var(--color-text-inverse);
 }
 
@@ -93,9 +100,12 @@
   max-width: 60ch;
 }
 
-.bonus-reminder {
-  font-weight: 700;
-  color: var(--color-brand-accent);
+.text-accent {
+  color: var(--color-brand-primary);
+}
+
+.text-accent-soft {
+  color: var(--color-brand-soft);
 }
 
 /* ---------------------------------------------------------------------
@@ -104,23 +114,33 @@
 
 .area-card {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: var(--space-2);
-  padding: var(--space-3);
+  padding: var(--space-2);
   background: var(--color-bg-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-card);
-  text-align: center;
+  text-align: left;
   font-weight: 600;
   font-size: var(--text-sm);
   box-shadow: var(--shadow-sm);
 }
 
+.area-card__icon-badge {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #fff0f5;
+}
+
 .area-card__icon {
-  width: 24px;
-  height: 24px;
+  width: 16px;
+  height: 16px;
   flex-shrink: 0;
   color: var(--color-brand-primary);
 }
@@ -159,34 +179,6 @@
 }
 
 /* ---------------------------------------------------------------------
-   Value points (module 4)
-   --------------------------------------------------------------------- */
-
-.value-points {
-  display: grid;
-  gap: var(--space-3);
-  margin: var(--space-6) 0;
-}
-
-.value-points li {
-  position: relative;
-  padding-left: var(--space-6);
-  font-weight: 600;
-}
-
-.value-points li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0.45em;
-  width: 10px;
-  height: 10px;
-  border-radius: var(--radius-pill);
-  background: var(--color-brand-secondary);
-  border: 2px solid var(--color-brand-primary);
-}
-
-/* ---------------------------------------------------------------------
    Accordion (FAQ)
    --------------------------------------------------------------------- */
 
@@ -218,12 +210,14 @@
   flex-shrink: 0;
   width: 18px;
   height: 18px;
-  color: var(--color-brand-primary);
-  transition: transform var(--duration-fast) var(--ease-standard);
+  color: var(--color-text-muted);
+  transition: transform var(--duration-fast) var(--ease-standard),
+    color var(--duration-fast) var(--ease-standard);
 }
 
 .accordion__trigger[aria-expanded="true"] .accordion__chevron {
   transform: rotate(180deg);
+  color: var(--color-brand-primary);
 }
 
 .accordion__panel {
@@ -261,12 +255,31 @@
 
 .consult-form {
   display: grid;
-  gap: var(--space-5);
-  background: var(--color-bg-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
+  gap: var(--space-4);
+  background: rgb(255 255 255 / 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgb(255 255 255 / 0.4);
+  border-radius: 16px;
   padding: var(--space-6);
   box-shadow: var(--shadow-md);
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .consult-form {
+    background: rgb(255 255 255 / 0.65);
+  }
+}
+
+.form-row {
+  display: grid;
+  gap: var(--space-4);
+}
+
+@media (min-width: 480px) {
+  .form-row {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 .form-field {
@@ -292,8 +305,18 @@
 }
 
 .form-field textarea {
-  min-height: 96px;
+  min-height: 56px;
   resize: vertical;
+}
+
+.consult-form__submit {
+  display: grid;
+  gap: var(--space-1);
+  text-align: center;
+}
+
+.consult-form__submit .microcopy {
+  margin-inline: auto;
 }
 
 /* Invalid styling is driven entirely by the .is-invalid class that
@@ -312,25 +335,102 @@
   min-height: 1em;
 }
 
-.form-field--radio-group {
-  border: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-4);
-  margin: 0;
+/* ---------------------------------------------------------------------
+   Multi-select dropdown (Main skin concern / Treatment area)
+   --------------------------------------------------------------------- */
+
+.multiselect {
+  position: relative;
 }
 
-.radio-option {
+.multiselect__trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 48px;
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-bg-page);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font: inherit;
+  font-size: var(--text-sm);
+  color: var(--color-text-primary);
+  text-align: left;
+}
+
+.multiselect__trigger-text {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.multiselect__chevron {
+  flex-shrink: 0;
+  width: 14px;
+  height: 14px;
+  margin-left: var(--space-2);
+  color: var(--color-text-muted);
+  transition: transform var(--duration-fast) var(--ease-standard);
+}
+
+.multiselect__trigger[aria-expanded="true"] .multiselect__chevron {
+  transform: rotate(180deg);
+}
+
+.multiselect__panel {
+  position: absolute;
+  z-index: 5;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  max-height: 220px;
+  overflow-y: auto;
+  display: grid;
+  gap: 2px;
+  padding: var(--space-2);
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+}
+
+.multiselect__panel[hidden] {
+  display: none;
+}
+
+.multiselect__option {
   display: flex;
   align-items: center;
   gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-sm);
   font-weight: 500;
-  min-height: 44px;
+  cursor: pointer;
 }
 
-.radio-option input {
+.multiselect__option:hover {
+  background: var(--color-bg-page);
+}
+
+.checkbox-option {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  font-weight: 500;
+}
+
+.checkbox-option input {
+  flex-shrink: 0;
   width: 20px;
   height: 20px;
+  margin-top: 2px;
+}
+
+.checkbox-option input.is-invalid {
+  outline: 2px solid var(--color-error);
+  outline-offset: 2px;
 }
 
 .form-status {
@@ -339,25 +439,19 @@
   color: var(--color-success);
 }
 
-.phone-link {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-2);
-  margin-top: var(--space-5);
-  font-weight: 700;
-  font-size: var(--text-md);
-  color: var(--color-brand-primary);
-}
-
 /* ---------------------------------------------------------------------
    Before / after carousel
    --------------------------------------------------------------------- */
 
 .ba-carousel {
-  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
 }
 
 .ba-carousel__track {
+  flex: 1;
+  min-width: 0;
   display: flex;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
@@ -366,19 +460,13 @@
   scrollbar-width: none;
 }
 
-@media (min-width: 768px) {
-  .ba-carousel__track {
-    padding-inline: 56px;
-  }
-}
-
 .ba-carousel__track::-webkit-scrollbar {
   display: none;
 }
 
 .ba-slide {
   flex: 0 0 100%;
-  scroll-snap-align: center;
+  scroll-snap-align: start;
   margin: 0;
 }
 
@@ -437,18 +525,7 @@
 
 .ba-carousel__arrow--prev,
 .ba-carousel__arrow--next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 2;
-}
-
-.ba-carousel__arrow--prev {
-  left: 4px;
-}
-
-.ba-carousel__arrow--next {
-  right: 4px;
+  flex-shrink: 0;
 }
 
 @media (min-width: 768px) {
@@ -458,30 +535,6 @@
     height: 44px;
     background: var(--color-bg-surface);
   }
-
-  .ba-carousel__arrow--prev {
-    left: 0;
-  }
-
-  .ba-carousel__arrow--next {
-    right: 0;
-  }
-}
-
-.ba-carousel__dots {
-  display: flex;
-  gap: var(--space-2);
-}
-
-.ba-carousel__dot {
-  width: 10px;
-  height: 10px;
-  border-radius: var(--radius-pill);
-  background: var(--color-border);
-}
-
-.ba-carousel__dot.is-active {
-  background: var(--color-brand-primary);
 }
 
 /* ---------------------------------------------------------------------
@@ -491,7 +544,7 @@
 .areas-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-3);
+  gap: var(--space-2);
 }
 
 /* ---------------------------------------------------------------------

@@ -2,8 +2,7 @@ import { FORM_ENDPOINT_URL } from "../config.js";
 import { qs } from "./utils.js";
 
 const REQUIRED_FIELDS = [
-  { id: "first-name", message: "Please enter your first name." },
-  { id: "last-name", message: "Please enter your last name." },
+  { id: "full-name", message: "Please enter your full name." },
   {
     id: "phone",
     message: "Please enter a valid phone number.",
@@ -11,6 +10,8 @@ const REQUIRED_FIELDS = [
   },
   { id: "email", message: "Please enter a valid email address." },
 ];
+
+const REQUIRED_CHECKBOXES = [{ id: "consent", message: "Please agree to be contacted to continue." }];
 
 export function initConsultForm() {
   const form = qs("#consult-form-element");
@@ -37,6 +38,18 @@ export function initConsultForm() {
       }
     });
 
+    REQUIRED_CHECKBOXES.forEach(({ id, message }) => {
+      const field = qs(`#${id}`, form);
+      const errorEl = qs(`#${id}-error`);
+
+      if (!field.checked) {
+        field.setAttribute("aria-invalid", "true");
+        field.classList.add("is-invalid");
+        if (errorEl) errorEl.textContent = message;
+        firstInvalidField = firstInvalidField || field;
+      }
+    });
+
     if (firstInvalidField) {
       firstInvalidField.focus();
       statusEl.textContent = "";
@@ -48,7 +61,7 @@ export function initConsultForm() {
 }
 
 function clearErrors(form) {
-  REQUIRED_FIELDS.forEach(({ id }) => {
+  [...REQUIRED_FIELDS, ...REQUIRED_CHECKBOXES].forEach(({ id }) => {
     const field = qs(`#${id}`, form);
     const errorEl = qs(`#${id}-error`);
     field.removeAttribute("aria-invalid");
@@ -57,8 +70,16 @@ function clearErrors(form) {
   });
 }
 
+// mainConcern/treatmentArea are chip checkboxes that share one name each, so a
+// patient can pick several — Object.fromEntries would silently keep only the
+// last one checked. getAll() collects every checked value into an array.
+const MULTI_VALUE_FIELDS = ["mainConcern", "treatmentArea"];
+
 async function submitForm(formData, statusEl) {
   const payload = Object.fromEntries(formData.entries());
+  MULTI_VALUE_FIELDS.forEach((name) => {
+    payload[name] = formData.getAll(name);
+  });
 
   // No webhook configured yet: skip the network call so the team can demo
   // and test the full flow before the real endpoint exists (see config.js).

@@ -90,6 +90,7 @@ h4 {
   line-height: var(--leading-tight);
   letter-spacing: var(--tracking-tight);
   color: var(--color-text-primary);
+  text-wrap: balance;
 }
 
 h1 {
@@ -123,7 +124,7 @@ h4 {
 }
 
 .section--inverse :focus-visible {
-  outline-color: var(--color-tech-accent-bright);
+  outline-color: var(--color-brand-soft);
 }
 
 .sr-only {
