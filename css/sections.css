@@ -313,6 +313,10 @@
   margin-bottom: var(--space-5);
 }
 
+.skin-layers .eyebrow {
+  margin-bottom: var(--space-1);
+}
+
 .skin-layers__grid {
   display: grid;
   gap: var(--space-7);
@@ -811,7 +815,8 @@
 }
 
 .faq__subtitle {
-  margin: 0;
+  margin-block: 0;
+  margin-inline: auto;
   color: var(--color-text-muted);
 }
 
@@ -885,7 +890,7 @@
 .consult-form-section__copy .bonus-line {
   margin: 0;
   font-family: var(--font-display);
-  font-size: var(--text-md);
+  font-size: calc(var(--text-md) + 5pt);
   font-weight: 700;
   color: #f9c7d6;
 }
@@ -947,13 +952,13 @@
 }
 
 .final-cta .btn--outline {
-  color: #db5296;
-  border-color: #db5296;
+  color: #f9c7d6;
+  border-color: #f9c7d6;
 }
 
 .final-cta .btn--outline:hover {
-  background: #db5296;
-  color: var(--color-text-inverse);
+  background: #f9c7d6;
+  color: #3b3b3b;
 }
 
 .final-cta__inner {
@@ -1049,8 +1054,8 @@
   width: 32px;
   height: 32px;
   border-radius: var(--radius-pill);
-  border: 1px solid rgb(0 0 0 / 0.15);
-  color: var(--color-text-muted);
+  border: 1px solid var(--color-brand-primary);
+  color: var(--color-brand-primary);
   transition: background-color var(--duration-fast) var(--ease-standard),
     border-color var(--duration-fast) var(--ease-standard),
     color var(--duration-fast) var(--ease-standard);
@@ -1083,7 +1088,7 @@
 
 .site-footer__contact {
   display: grid;
-  gap: var(--space-2);
+  gap: var(--space-1);
   font-style: normal;
   line-height: var(--leading-normal);
 }
@@ -1092,6 +1097,7 @@
   display: flex;
   align-items: flex-start;
   gap: var(--space-2);
+  margin: 0;
 }
 
 .site-footer__contact-icon {
@@ -1110,8 +1116,20 @@
   color: var(--color-brand-primary);
 }
 
-.site-footer__copyright {
+.site-footer__legal {
   margin-top: var(--space-5);
+  margin-bottom: 0;
+  margin-inline: auto;
+  max-width: none;
+  color: var(--color-text-primary);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  text-align: center;
+}
+
+.site-footer__legal-sub {
+  margin-top: var(--space-1);
+  margin-bottom: 0;
   margin-inline: auto;
   max-width: none;
   color: var(--color-text-muted);
@@ -1120,8 +1138,18 @@
   text-align: center;
 }
 
+.site-footer__legal-link {
+  color: inherit;
+  text-decoration: underline;
+}
+
+.site-footer__legal-link:hover {
+  color: var(--color-brand-primary);
+}
+
 @media (min-width: 480px) {
-  .site-footer__copyright {
+  .site-footer__legal,
+  .site-footer__legal-sub {
     white-space: nowrap;
   }
 }

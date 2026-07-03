@@ -9,6 +9,7 @@ import { initAnnouncementBar } from "./announcement-bar.js";
 import { initConsultForm } from "./form-validation.js";
 import { initMultiselects } from "./multiselect.js";
 import { initHeaderNav } from "./header-nav.js";
+import { initLightbox } from "./lightbox.js";
 
 initScrollReveal();
 initAccordion("#faq-accordion");
@@ -33,3 +34,4 @@ initAnnouncementBar();
 initConsultForm();
 initMultiselects();
 initHeaderNav();
+initLightbox(".ba-slide__zoom");
