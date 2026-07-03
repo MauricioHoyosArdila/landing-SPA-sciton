@@ -14,6 +14,7 @@ export function initSkinLayers(rootSelector) {
   if (!root) return;
 
   const markers = qsa(".skin-layers__marker", root);
+  const callouts = qsa(".skin-layers__callout", root);
   const tabs = qsa(".skin-layers__tab", root);
   const panel = qs(".skin-layers__panel", root);
   const panelText = panel?.querySelector("p");
@@ -26,6 +27,7 @@ export function initSkinLayers(rootSelector) {
     current = key;
 
     markers.forEach((marker) => marker.setAttribute("aria-pressed", String(marker.dataset.target === key)));
+    callouts.forEach((callout) => callout.classList.toggle("is-active", callout.dataset.target === key));
 
     let activeTab = null;
     tabs.forEach((tab) => {

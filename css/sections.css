@@ -80,6 +80,16 @@
   color: #6b5d54;
 }
 
+.hero__microcopy-break {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .hero__microcopy-break {
+    display: inline;
+  }
+}
+
 .hero__ctas {
   display: flex;
   flex-wrap: wrap;
@@ -94,6 +104,25 @@
   box-shadow: var(--shadow-lg);
 }
 
+@media (max-width: 767px) {
+  .hero__grid {
+    gap: var(--space-5);
+  }
+
+  .hero__copy {
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .hero__ctas {
+    justify-content: center;
+  }
+
+  .hero .microcopy {
+    margin-inline: auto;
+  }
+}
+
 /* ---------------------------------------------------------------------
    Module 2 — What it can improve (concerns carousel)
    --------------------------------------------------------------------- */
@@ -105,6 +134,16 @@
 .concerns .section-heading {
   text-align: center;
   margin-inline: auto;
+}
+
+@media (max-width: 767px) {
+  .concerns {
+    padding-top: var(--space-6);
+  }
+
+  .concerns .section-heading {
+    margin-bottom: var(--space-4);
+  }
 }
 
 .concerns .section-heading h2 {
@@ -329,6 +368,17 @@
   }
 }
 
+@media (max-width: 767px) {
+  .skin-layers {
+    padding-top: var(--space-5);
+    padding-bottom: var(--space-6);
+  }
+
+  .skin-layers__grid {
+    gap: var(--space-4);
+  }
+}
+
 .skin-layers__media {
   position: relative;
   max-width: 360px;
@@ -337,7 +387,9 @@
 
 @media (min-width: 1024px) {
   .skin-layers__media {
-    max-width: none;
+    /* Capped (not "none") so the callout leader lines below have a
+       predictable half-width to reach past when clearing the artwork. */
+    max-width: 380px;
   }
 }
 
@@ -385,6 +437,61 @@
 .skin-layers__marker[aria-pressed="true"] .skin-layers__marker-dot {
   background: var(--color-text-inverse);
   transform: scale(1.3);
+}
+
+.skin-layers__callout {
+  position: absolute;
+  right: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+}
+
+.skin-layers__callout-label {
+  margin-right: var(--space-2);
+  font-size: 12px;
+  line-height: 1.2;
+  white-space: nowrap;
+  color: #3b3b3b;
+  text-align: right;
+  transition: color var(--duration-fast) var(--ease-standard);
+}
+
+.skin-layers__callout-line {
+  flex-shrink: 0;
+  width: 195px;
+  height: 1px;
+  background: #3b3b3b;
+  transition: background-color var(--duration-fast) var(--ease-standard);
+}
+
+.skin-layers__callout.is-active .skin-layers__callout-label {
+  color: var(--color-brand-primary);
+}
+
+.skin-layers__callout.is-active .skin-layers__callout-line {
+  background: var(--color-brand-primary);
+}
+
+@media (max-width: 767px) {
+  .skin-layers__content .section-cta {
+    text-align: center;
+  }
+
+  .skin-layers__callout-line {
+    width: 18px;
+  }
+
+  .skin-layers__callout-label {
+    margin-right: var(--space-1);
+    font-size: 10px;
+    white-space: normal;
+    max-width: 62px;
+    background: rgb(255 255 255 / 0.8);
+    padding: 2px 4px;
+    border-radius: 3px;
+  }
 }
 
 .skin-layers__tabs {
@@ -695,6 +802,14 @@
   margin: 0 0 var(--space-7);
 }
 
+@media (max-width: 767px) {
+  .reviews__pills {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: stretch;
+  }
+}
+
 .reviews__pill {
   display: flex;
   align-items: center;
@@ -715,6 +830,20 @@
   height: 12px;
   flex-shrink: 0;
   color: #db5296;
+}
+
+@media (max-width: 767px) {
+  .reviews__pill {
+    padding: 6px 8px;
+    font-size: 9.5px;
+    white-space: normal;
+    line-height: 1.2;
+  }
+
+  .reviews__pill-icon {
+    width: 11px;
+    height: 11px;
+  }
 }
 
 .reviews__track {
@@ -880,6 +1009,20 @@
   flex-direction: column;
   gap: var(--space-4);
   text-align: left;
+}
+
+.consult-form-section__copy p {
+  margin-bottom: 0;
+}
+
+@media (max-width: 767px) {
+  .consult-form-section__copy {
+    text-align: center;
+  }
+
+  .consult-form-section__copy p {
+    margin-inline: auto;
+  }
 }
 
 .consult-form-section__copy h2,
@@ -1076,6 +1219,25 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-3);
+}
+
+@media (max-width: 767px) {
+  .site-footer__brand {
+    text-align: center;
+  }
+
+  .site-footer__social {
+    justify-content: center;
+  }
+
+  .site-footer__contact-col {
+    align-items: center;
+    text-align: center;
+  }
+
+  .site-footer__contact {
+    justify-items: center;
+  }
 }
 
 .site-footer__location-heading {
