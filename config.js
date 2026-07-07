@@ -1,7 +1,10 @@
-// Single source of truth for the consultation webhook + contact details.
-// Paste the real webhook URL (Zapier / HubSpot / custom endpoint) below —
-// no other file needs to change once this is set.
-export const FORM_ENDPOINT_URL = "";
+// Single source of truth for public, client-safe constants. The Zapier
+// webhook URL lives server-side only (ZAPIER_WEBHOOK_URL env var, read by
+// api/submit-lead.js) so it's never shipped to the browser.
+
+// reCAPTCHA v3 site key (public by design -- safe to hardcode client-side).
+// Must match the render= query param on the reCAPTCHA <script> tag in index.html.
+export const RECAPTCHA_SITE_KEY = "6LcASKosAAAAAAnY1h8C4i_TNIXBxBG0m6BRmM2K";
 
 export const CONTACT = {
   phone: "4077305600",
