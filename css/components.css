@@ -31,6 +31,10 @@
 .btn--primary {
   background: var(--color-brand-primary);
   color: var(--color-text-inverse);
+  /* A soft white edge keeps the button visible when it sits on a
+     section background that's also in the pink/rose family (hero,
+     concerns, the floating call pill) without changing the fill color. */
+  border: 1.5px solid rgb(255 255 255 / 0.5);
   box-shadow: var(--shadow-sm);
 }
 
@@ -41,8 +45,8 @@
 
 .btn--secondary {
   background: var(--color-bg-surface);
-  color: var(--color-brand-primary);
-  border: 1.5px solid var(--color-brand-primary);
+  color: var(--color-brand-primary-text);
+  border: 1.5px solid var(--color-brand-primary-text);
 }
 
 .btn--secondary:hover {
@@ -51,7 +55,7 @@
 
 .btn--ghost {
   background: transparent;
-  color: var(--color-brand-primary);
+  color: var(--color-brand-primary-text);
   text-decoration: underline;
   text-underline-offset: 4px;
   min-height: 44px;
@@ -60,8 +64,8 @@
 
 .btn--outline {
   background: transparent;
-  color: var(--color-brand-primary);
-  border: 1.5px solid var(--color-brand-primary);
+  color: var(--color-brand-primary-text);
+  border: 1.5px solid var(--color-brand-primary-text);
 }
 
 .btn--outline:hover {
@@ -91,7 +95,7 @@
   font-size: var(--text-xs);
   letter-spacing: var(--tracking-widest);
   text-transform: uppercase;
-  color: var(--color-brand-primary);
+  color: var(--color-brand-primary-text);
 }
 
 .microcopy {
@@ -101,7 +105,7 @@
 }
 
 .text-accent {
-  color: var(--color-brand-primary);
+  color: var(--color-brand-primary-text);
 }
 
 .text-accent-soft {
@@ -142,7 +146,7 @@
   width: 16px;
   height: 16px;
   flex-shrink: 0;
-  color: var(--color-brand-primary);
+  color: var(--color-brand-primary-text);
 }
 
 /* ---------------------------------------------------------------------
@@ -173,7 +177,7 @@
   width: 22px;
   height: 22px;
   padding: 3px;
-  color: var(--color-text-inverse);
+  color: var(--color-text-primary);
   background: var(--color-brand-primary);
   border-radius: var(--radius-pill);
 }
@@ -217,7 +221,7 @@
 
 .accordion__trigger[aria-expanded="true"] .accordion__chevron {
   transform: rotate(180deg);
-  color: var(--color-brand-primary);
+  color: var(--color-brand-primary-text);
 }
 
 .accordion__panel {
@@ -529,6 +533,7 @@
 
 .ba-slide__zoom:hover {
   background: var(--color-brand-primary);
+  color: var(--color-text-primary);
 }
 
 .lightbox {

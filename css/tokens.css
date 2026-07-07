@@ -12,8 +12,18 @@
   --raw-white: #ffffff;
   --raw-pink-pale: #fff0f5;
   --raw-pink-soft: #f9c7d6;
-  --raw-pink-action: #db5296;
-  --raw-pink-action-hover: #ba4680;
+  --raw-pink-action: #e2a1a1;
+  --raw-pink-action-hover: #c08989;
+  /* Darkened variant of the accent, for when it's used as text/icon color
+     against light backgrounds — #e2a1a1 itself sits too close to mid-gray
+     luminance to clear WCAG contrast as a foreground color (~2.1:1 either
+     direction). Never use this for filled backgrounds; those keep the
+     literal accent hex per spec. */
+  --raw-pink-action-text: #8c6464;
+  /* Light tint of the new accent, for chip/row backgrounds that need to
+     read as "part of the e2a1a1 family" (not the old #db5296-era pink)
+     while staying light enough for dark text on top. */
+  --raw-pink-action-tint: #f8e8e8;
   --raw-blush-rose: #e6b9b4;
   --raw-deep-rose: #d28e8e;
   --raw-charcoal: #3b3b3b;
@@ -46,6 +56,8 @@
 
   --color-brand-primary: var(--raw-pink-action);
   --color-brand-primary-hover: var(--raw-pink-action-hover);
+  --color-brand-primary-text: var(--raw-pink-action-text);
+  --color-brand-primary-tint: var(--raw-pink-action-tint);
   --color-brand-soft: var(--raw-pink-soft);
   --color-brand-secondary: var(--raw-blush-rose);
   --color-brand-accent: var(--raw-deep-rose);
@@ -121,7 +133,7 @@
   --shadow-sm: 0 1px 2px rgb(59 59 59 / 0.08);
   --shadow-md: 0 8px 24px rgb(59 59 59 / 0.12);
   --shadow-lg: 0 20px 48px rgb(59 59 59 / 0.16);
-  --shadow-focus: 0 0 0 3px rgb(186 70 128 / 0.35);
+  --shadow-focus: 0 0 0 3px rgb(192 137 137 / 0.35);
   --shadow-tech: 0 12px 32px rgb(0 0 0 / 0.35);
 
   /* ---------------------------------------------------------------------

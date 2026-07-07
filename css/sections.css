@@ -49,6 +49,10 @@
   max-width: 56ch;
 }
 
+.hero .eyebrow {
+  color: var(--color-brand-primary-hover);
+}
+
 .hero h1 {
   margin-bottom: var(--space-3);
   color: #303030;
@@ -59,11 +63,11 @@
 }
 
 .hero__ctas .btn--primary {
-  background: #db5296;
+  background: var(--color-brand-primary);
 }
 
 .hero__ctas .btn--primary:hover {
-  background: #ba4680;
+  background: var(--color-brand-primary-hover);
 }
 
 .hero__subheadline {
@@ -128,7 +132,7 @@
    --------------------------------------------------------------------- */
 
 .concerns {
-  background: #db5296;
+  background: var(--color-brand-primary);
 }
 
 .concerns .section-heading {
@@ -151,7 +155,7 @@
 }
 
 .concerns .section-heading h2 .text-accent {
-  color: var(--color-brand-soft);
+  color: var(--color-text-primary);
 }
 
 .concerns .section-heading p {
@@ -166,15 +170,6 @@
 
 .concerns .disclaimer {
   color: var(--color-text-inverse-muted);
-}
-
-.concerns .section-cta .btn {
-  background: var(--color-brand-soft);
-  color: var(--color-text-primary);
-}
-
-.concerns .section-cta .btn:hover {
-  background: var(--color-text-inverse);
 }
 
 .concerns-carousel {
@@ -352,6 +347,10 @@
   margin-bottom: var(--space-5);
 }
 
+.skin-layers .text-accent {
+  color: var(--color-brand-primary);
+}
+
 .skin-layers .eyebrow {
   margin-bottom: var(--space-1);
 }
@@ -467,11 +466,11 @@
 }
 
 .skin-layers__callout.is-active .skin-layers__callout-label {
-  color: var(--color-brand-primary);
+  color: var(--color-brand-primary-text);
 }
 
 .skin-layers__callout.is-active .skin-layers__callout-line {
-  background: var(--color-brand-primary);
+  background: var(--color-brand-primary-text);
 }
 
 @media (max-width: 767px) {
@@ -531,7 +530,7 @@
 }
 
 .skin-layers__tab.is-active .skin-layers__tab-nm {
-  color: rgb(255 255 255 / 0.75);
+  color: rgb(255 255 255 / 0.85);
 }
 
 .skin-layers__panel {
@@ -585,6 +584,10 @@
   max-width: none;
   text-align: center;
   margin-inline: auto;
+}
+
+.before-after .text-accent {
+  color: var(--color-brand-primary);
 }
 
 .before-after .section-heading p {
@@ -662,6 +665,14 @@
 
 .areas .section-heading h2 {
   color: var(--color-text-inverse);
+}
+
+/* This section has a dark photo background, where the plain (undarkened)
+   accent already clears WCAG contrast comfortably — the site-wide
+   .text-accent darkening (for light backgrounds) would needlessly dim it
+   here. */
+.areas .text-accent {
+  color: var(--color-brand-primary);
 }
 
 .areas .section-heading p {
@@ -760,6 +771,10 @@
   margin-bottom: var(--space-4);
 }
 
+.reviews .text-accent {
+  color: var(--color-brand-primary);
+}
+
 @media (min-width: 768px) {
   .reviews .section-heading h2 {
     white-space: nowrap;
@@ -816,11 +831,11 @@
   justify-content: center;
   gap: 6px;
   padding: 5px 12px;
-  background: #fff0f5;
+  background: #f9cfcf;
   border-radius: var(--radius-pill);
   font-size: 11px;
   font-weight: 600;
-  color: #db5296;
+  color: var(--color-text-primary);
   text-align: center;
   white-space: nowrap;
 }
@@ -829,7 +844,7 @@
   width: 12px;
   height: 12px;
   flex-shrink: 0;
-  color: #db5296;
+  color: var(--color-brand-primary-text);
 }
 
 @media (max-width: 767px) {
@@ -962,23 +977,23 @@
 
 .faq__card .accordion__item {
   padding-inline: var(--space-5);
-  background: #fff0f5;
+  background: #f9d9d9;
   border: 1px solid rgb(255 255 255 / 0.5);
   border-radius: 16px;
   overflow: hidden;
 }
 
 .faq__card .accordion__trigger {
-  color: #db5296;
+  color: var(--color-text-primary);
 }
 
 .faq__card .accordion__chevron {
-  color: #db5296;
+  color: #c08989;
 }
 
 .faq__card .accordion__trigger[aria-expanded="true"] .accordion__chevron {
   transform: rotate(45deg);
-  color: #db5296;
+  color: #c08989;
 }
 
 /* ---------------------------------------------------------------------
@@ -1069,18 +1084,6 @@
   outline-color: #ffcc33;
 }
 
-/* The submit button was the same hot pink as the section background —
-   nearly invisible. Reuse the same soft-pink-on-pink pattern already
-   established for the Module 2 CTA on a matching background. */
-.consult-form .btn--primary {
-  background: var(--color-brand-soft);
-  color: var(--color-text-primary);
-}
-
-.consult-form .btn--primary:hover {
-  background: var(--color-text-inverse);
-}
-
 /* The dropdown panel itself sits on an opaque white surface, not the pink
    glass background — its option labels need the standard dark palette
    color, not the translucent white used for labels on the glass form. */
@@ -1109,7 +1112,7 @@
 }
 
 .final-cta h2 {
-  color: #db5296;
+  color: var(--color-brand-primary);
 }
 
 .final-cta__heading-white {
@@ -1121,7 +1124,7 @@
 }
 
 .final-cta .btn--primary {
-  background: #db5296;
+  background: var(--color-brand-primary);
   color: var(--color-text-inverse);
 }
 
@@ -1130,13 +1133,13 @@
 }
 
 .final-cta .btn--outline {
-  color: #f9c7d6;
-  border-color: #f9c7d6;
+  color: var(--color-brand-primary);
+  border-color: var(--color-brand-primary);
 }
 
 .final-cta .btn--outline:hover {
-  background: #f9c7d6;
-  color: #3b3b3b;
+  background: var(--color-brand-primary);
+  color: var(--color-text-inverse);
 }
 
 .final-cta__inner {
@@ -1179,7 +1182,7 @@
 .site-footer {
   padding-block: var(--space-7) var(--space-5);
   padding-bottom: calc(var(--space-5) + 72px); /* clear the mobile sticky bar */
-  background: #f9c7d6;
+  background: #f9cfcf;
   color: var(--color-text-muted);
   font-size: var(--text-sm);
 }
@@ -1232,8 +1235,8 @@
   width: 32px;
   height: 32px;
   border-radius: var(--radius-pill);
-  border: 1px solid var(--color-brand-primary);
-  color: var(--color-brand-primary);
+  border: 1px solid var(--color-brand-primary-text);
+  color: var(--color-brand-primary-text);
   transition: background-color var(--duration-fast) var(--ease-standard),
     border-color var(--duration-fast) var(--ease-standard),
     color var(--duration-fast) var(--ease-standard);
@@ -1247,7 +1250,7 @@
 .site-footer__social-link:hover {
   background: var(--color-brand-primary);
   border-color: var(--color-brand-primary);
-  color: var(--color-text-inverse);
+  color: var(--color-text-primary);
 }
 
 .site-footer__contact-col {
@@ -1302,7 +1305,7 @@
   width: 16px;
   height: 16px;
   margin-top: 2px;
-  color: var(--color-brand-primary);
+  color: var(--color-brand-primary-text);
 }
 
 .site-footer__contact a {
@@ -1310,7 +1313,7 @@
 }
 
 .site-footer__contact a:hover {
-  color: var(--color-brand-primary);
+  color: var(--color-brand-primary-text);
 }
 
 .site-footer__legal {
@@ -1341,7 +1344,7 @@
 }
 
 .site-footer__legal-link:hover {
-  color: var(--color-brand-primary);
+  color: var(--color-brand-primary-text);
 }
 
 @media (min-width: 480px) {

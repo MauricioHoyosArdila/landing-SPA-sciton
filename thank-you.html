@@ -14,6 +14,7 @@
 <link rel="stylesheet" href="css/base.css" />
 <link rel="stylesheet" href="css/layout.css" />
 <link rel="stylesheet" href="css/components.css" />
+<link rel="stylesheet" href="css/sections.css" />
 <link rel="stylesheet" href="css/thank-you.css" />
 </head>
 <body>
@@ -77,47 +78,50 @@
     </div>
   </section>
 
-  <!-- THANK YOU MODULE 2 — reuses the .checklist component -->
-  <section class="improve" aria-labelledby="ty-prep-heading">
-    <div class="container" data-reveal>
-      <h2 id="ty-prep-heading">Before your consultation</h2>
-      <p>Start thinking about the concerns you would most like to improve:</p>
-      <ul class="checklist">
-        <li><svg class="checklist__icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Dark spots</li>
-        <li><svg class="checklist__icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Sun damage</li>
-        <li><svg class="checklist__icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Fine lines</li>
-        <li><svg class="checklist__icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Acne scars</li>
-        <li><svg class="checklist__icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Visible pores</li>
-        <li><svg class="checklist__icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Rough texture</li>
-        <li><svg class="checklist__icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Uneven tone</li>
-        <li><svg class="checklist__icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Dullness</li>
-        <li><svg class="checklist__icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Treatment areas such as face, neck, chest or hands</li>
-      </ul>
-      <p class="closing-copy">These details help our team create a better conversation during your visit.</p>
-    </div>
-  </section>
-
-  <!-- THANK YOU MODULE 3 — reuses the .contact-block component -->
-  <section class="final-cta" aria-labelledby="ty-visit-heading">
-    <div class="container final-cta__inner" data-reveal>
-      <h2 id="ty-visit-heading">Visit us in Lake Nona</h2>
-      <address class="contact-block">
-        Regenerative Med Spa<br />
-        10920 Moss Park Rd. Suite 218<br />
-        Orlando, FL 32832<br />
-        <a href="tel:4077305600">407.730.5600</a>
-      </address>
-      <div class="final-cta__ctas">
-        <a class="btn btn--primary btn--lg" href="tel:4077305600">Call 407.730.5600</a>
-      </div>
-    </div>
-  </section>
-
 </main>
 
 <footer class="site-footer">
+  <div class="container site-footer__grid">
+    <div class="site-footer__brand">
+      <a href="index.html" class="site-footer__logo">
+        <img src="Img/logo-medspa-01.png" alt="Regenerative Med Spa" width="170" height="34" />
+      </a>
+      <p class="site-footer__tagline">Advanced medical aesthetics. Personalized care.</p>
+      <div class="site-footer__social">
+        <a class="site-footer__social-link" href="https://www.facebook.com/regens3medspa/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" /></svg>
+        </a>
+        <a class="site-footer__social-link" href="https://www.instagram.com/regenerativemedspa/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" /></svg>
+        </a>
+        <a class="site-footer__social-link" href="tel:4077305600" aria-label="Call Regenerative Med Spa">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M6.6 10.8c1.4 2.7 3.6 4.9 6.3 6.3l2.1-2.1c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.5.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.6c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.5.1.4 0 .8-.2 1l-2.1 2.1z" /></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="site-footer__contact-col">
+      <p class="site-footer__location-heading">Our location</p>
+      <address class="site-footer__contact">
+        <p>
+          <svg class="site-footer__contact-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-7.58 7-12a7 7 0 10-14 0c0 4.42 7 12 7 12z"/><circle cx="12" cy="9" r="2.3"/></svg>
+          <span>10920 Moss Park Rd. Suite 218, Orlando, FL 32832</span>
+        </p>
+        <p>
+          <svg class="site-footer__contact-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+          <a href="mailto:info@regens3.com">info@regens3.com</a>
+        </p>
+        <p>
+          <svg class="site-footer__contact-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M6.6 10.8c1.4 2.7 3.6 4.9 6.3 6.3l2.1-2.1c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.5.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.6c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.5.1.4 0 .8-.2 1l-2.1 2.1z"/></svg>
+          <a href="tel:4077305600">407-730-5600</a>
+        </p>
+      </address>
+    </div>
+  </div>
+
   <div class="container">
-    <p>&copy; <span id="current-year">2026</span> Regenerative Med Spa. HALO is a registered trademark and TRIBRID is a trademark of Sciton, Inc.</p>
+    <p class="site-footer__legal">&copy; <span id="current-year">2026</span> Regenerative Med Spa. All rights reserved.</p>
+    <p class="site-footer__legal-sub">HALO is a registered trademark and TRIBRID is a trademark of Sciton, Inc. &middot; Site by <a class="site-footer__legal-link" href="https://www.grapezstudio.com/" target="_blank" rel="noopener noreferrer">Grapez Studio</a></p>
   </div>
 </footer>
 
