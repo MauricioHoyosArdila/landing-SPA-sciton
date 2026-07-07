@@ -1,8 +1,9 @@
-import { FORM_ENDPOINT_URL } from "../config.js";
+import { RECAPTCHA_SITE_KEY } from "../config.js";
 import { qs } from "./utils.js";
 
 const REQUIRED_FIELDS = [
-  { id: "full-name", message: "Please enter your full name." },
+  { id: "first-name", message: "Please enter your first name." },
+  { id: "last-name", message: "Please enter your last name." },
   {
     id: "phone",
     message: "Please enter a valid phone number.",
@@ -18,7 +19,7 @@ export function initConsultForm() {
   if (!form) return;
   const statusEl = qs("#form-status");
 
-  form.addEventListener("submit", (event) => {
+  form.addEventListener("submit", async (event) => {
     event.preventDefault();
     clearErrors(form);
 
@@ -56,7 +57,7 @@ export function initConsultForm() {
       return;
     }
 
-    submitForm(new FormData(form), statusEl);
+    await submitForm(new FormData(form), statusEl, form);
   });
 }
 
@@ -72,40 +73,69 @@ function clearErrors(form) {
 
 // mainConcern/treatmentArea are chip checkboxes that share one name each, so a
 // patient can pick several — Object.fromEntries would silently keep only the
-// last one checked. getAll() collects every checked value into an array.
+// last one checked. getAll() collects every checked value, joined into a
+// single comma-separated string since the Zapier/Boulevard integration
+// expects a plain string (destined for a notes field), not a JSON array.
 const MULTI_VALUE_FIELDS = ["mainConcern", "treatmentArea"];
 
-async function submitForm(formData, statusEl) {
-  const payload = Object.fromEntries(formData.entries());
-  MULTI_VALUE_FIELDS.forEach((name) => {
-    payload[name] = formData.getAll(name);
+function getRecaptchaToken() {
+  return new Promise((resolve, reject) => {
+    if (!window.grecaptcha) {
+      reject(new Error("grecaptcha not loaded"));
+      return;
+    }
+    window.grecaptcha.ready(() => {
+      window.grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: "submit_consultation" }).then(resolve, reject);
+    });
   });
+}
 
-  // No webhook configured yet: skip the network call so the team can demo
-  // and test the full flow before the real endpoint exists (see config.js).
-  if (!FORM_ENDPOINT_URL) {
-    console.info("[consult-form] FORM_ENDPOINT_URL is not set yet — skipping submission.", payload);
-    goToThankYou(statusEl);
-    return;
-  }
-
+// Verifies reCAPTCHA and forwards the lead to Zapier in one server-side call
+// (api/submit-lead.js) -- the real webhook URL never reaches the browser.
+async function submitLead(payload) {
   try {
-    await fetch(FORM_ENDPOINT_URL, {
+    const token = await getRecaptchaToken();
+    const response = await fetch("/api/submit-lead", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload),
+      body: JSON.stringify({ token, ...payload }),
     });
+    if (!response.ok) return { success: false };
+    return await response.json();
   } catch (error) {
-    // A failed promo-lead submission should still resolve to a friendly
-    // confirmation (with a phone-call fallback) rather than block the user.
     console.error("[consult-form] submission failed:", error);
+    return { success: false };
+  }
+}
+
+function setStatus(statusEl, message, isError) {
+  if (!statusEl) return;
+  statusEl.textContent = message;
+  statusEl.classList.toggle("is-error", isError);
+}
+
+async function submitForm(formData, statusEl, form) {
+  const submitButton = form ? qs('button[type="submit"]', form) : null;
+  setStatus(statusEl, "Verifying you're not a robot...", false);
+  if (submitButton) submitButton.disabled = true;
+
+  const payload = Object.fromEntries(formData.entries());
+  MULTI_VALUE_FIELDS.forEach((name) => {
+    payload[name] = formData.getAll(name).join(", ");
+  });
+
+  const result = await submitLead(payload);
+  if (!result.success) {
+    setStatus(statusEl, "We couldn't verify your submission. Please try again.", true);
+    if (submitButton) submitButton.disabled = false;
+    return;
   }
 
   goToThankYou(statusEl);
 }
 
 function goToThankYou(statusEl) {
-  if (statusEl) statusEl.textContent = "Thank you — redirecting...";
+  setStatus(statusEl, "Thank you — redirecting...", false);
   window.setTimeout(() => {
     window.location.href = "thank-you.html";
   }, 500);
