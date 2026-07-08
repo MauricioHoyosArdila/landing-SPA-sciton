@@ -204,7 +204,7 @@ section[id] {
 }
 
 .site-header__nav a:hover {
-  color: #db5296;
+  color: var(--color-brand-primary-text);
 }
 
 .site-header__menu-toggle {
@@ -213,7 +213,7 @@ section[id] {
   width: 36px;
   height: 36px;
   flex-shrink: 0;
-  color: #db5296;
+  color: var(--color-brand-primary-text);
 }
 
 @media (min-width: 1024px) {
@@ -253,7 +253,7 @@ section[id] {
 }
 
 .site-header__mobile-nav a:hover {
-  color: #db5296;
+  color: var(--color-brand-primary-text);
 }
 
 .site-header__actions {
@@ -330,6 +330,7 @@ section[id] {
     font-weight: 600;
     font-size: var(--text-sm);
     text-decoration: none;
+    border: 1.5px solid rgb(255 255 255 / 0.5);
     border-radius: var(--radius-pill);
     box-shadow: var(--shadow-lg);
     transition: background-color var(--duration-fast) var(--ease-standard);

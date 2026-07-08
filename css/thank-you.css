@@ -1,6 +1,6 @@
 /* ==========================================================================
-   THANK YOU PAGE — reuses .checklist / .contact-block / .final-cta from the
-   main component system; only the confirmation hero is page-specific.
+   THANK YOU PAGE — just the confirmation hero; styles page-specific bits
+   on top of the shared header/button/token system.
    ========================================================================== */
 
 /* This page has no announcement bar above the header, unlike index.html
@@ -32,8 +32,8 @@
   place-items: center;
   width: 80px;
   height: 80px;
-  color: var(--color-brand-primary);
-  background: var(--color-brand-soft);
+  color: var(--color-brand-primary-text);
+  background: var(--color-brand-primary-tint);
   border-radius: var(--radius-pill);
 }
 
@@ -47,8 +47,4 @@
   justify-content: center;
   gap: var(--space-4);
   margin-top: var(--space-2);
-}
-
-.improve h2 {
-  margin-bottom: var(--space-4);
 }
