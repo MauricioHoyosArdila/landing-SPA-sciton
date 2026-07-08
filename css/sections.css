@@ -1078,11 +1078,11 @@
 }
 
 .consult-form .form-field input.is-invalid {
-  border-color: #ffcc33;
+  border-color: #d38c8c;
 }
 
 .consult-form .checkbox-option input.is-invalid {
-  outline-color: #ffcc33;
+  outline-color: #d38c8c;
 }
 
 /* The dropdown panel itself sits on an opaque white surface, not the pink
